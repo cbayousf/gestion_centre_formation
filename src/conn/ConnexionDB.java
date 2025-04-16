@@ -16,7 +16,7 @@ public class ConnexionDB {
             return conn;
         } catch (ClassNotFoundException e) {
             System.out.println("❌ Driver JDBC non trouvé !");
-            e.printStackTrace();
+            e.printStackTrace();//on affiche les détails
         } catch (SQLException e) {
             System.out.println("❌ Erreur de connexion !");
             e.printStackTrace();
