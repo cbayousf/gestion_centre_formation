@@ -55,20 +55,20 @@ INSERT INTO Inscription (Statut, ID_Etudiant, ID_Module, Date_Inscription) VALUE
 ('En cours', 2, 2, '2025-02-01'),
 ('Annulée', 3, 3, '2025-03-05');
 
+-- a modifier 
 -- Table Cours
 CREATE TABLE Cours (
     ID_Cours INT PRIMARY KEY AUTO_INCREMENT,
+    Nom_Cours VARCHAR(20),
     Date_Cours DATE,
     ID_Module INT,
-    ID_Enseignant INT,
     FOREIGN KEY (ID_Module) REFERENCES Module(ID_Module),
-    FOREIGN KEY (ID_Enseignant) REFERENCES Enseignant(ID_Enseignant)
 );
 
-INSERT INTO Cours (Date_Cours, ID_Module, ID_Enseignant) VALUES
-('2025-01-20', 1, 1),
-('2025-02-05', 2, 2),
-('2025-03-10', 3, 3);
+INSERT INTO Cours (Nom_Cours, Date_Cours, ID_Module) VALUES 
+('Java Avancé', '2025-01-20', 1), 
+('Bases de Données', '2025-02-05', 2), 
+('Développement Web', '2025-03-10', 3);
 
 -- Table Certificat
 CREATE TABLE Certificat (

@@ -56,7 +56,7 @@ public class Enseignant {
         this.specialite = specialite;
     }
 
-    public String Afficher(){
+    public String afficher(){
         return("Enseignat{" +
                 "idEnseignant=" + idEnseignant + 
                 ", nom='" + nom + '\'' + 
