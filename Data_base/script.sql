@@ -12,6 +12,7 @@ INSERT INTO etudiant (Nom, Prénom, Email, Téléphone) VALUES
 ('El Khoury', 'Sara', 'sara.khoury@yahoo.com', '0612345678'),
 ('Ait Taleb', 'Nour', 'nour.ait@gmail.com', '0622233445');
 
+
 -- Table Enseignant
 CREATE TABLE Enseignant (
     ID_Enseignant INT PRIMARY KEY AUTO_INCREMENT,
