@@ -2,9 +2,9 @@
 CREATE TABLE etudiant (
     ID_Etudiant INT PRIMARY KEY AUTO_INCREMENT,
     Nom VARCHAR(50),
-    Prénom VARCHAR(50),
+    Prenom VARCHAR(50),
     Email VARCHAR(100),
-    Téléphone VARCHAR(20)
+    Telephone VARCHAR(20)
 );
 
 INSERT INTO etudiant (Nom, Prénom, Email, Téléphone) VALUES
@@ -15,13 +15,13 @@ INSERT INTO etudiant (Nom, Prénom, Email, Téléphone) VALUES
 -- Table Enseignant
 CREATE TABLE Enseignant (
     ID_Enseignant INT PRIMARY KEY AUTO_INCREMENT,
-    Nom VARCHAR(50),
-    Prénom VARCHAR(50),
-    Email VARCHAR(100),
-    Spécialité VARCHAR(100)
+    nom VARCHAR(50),
+    prenom VARCHAR(50),
+    email VARCHAR(100),
+    specialite VARCHAR(100)
 );
 
-INSERT INTO Enseignant (Nom, Prénom, Email, Spécialité) VALUES
+INSERT INTO Enseignant (nom, prenom, email, specialite) VALUES
 ('Lamrani', 'Hassan', 'h.lamrani@cf.ma', 'Java'),
 ('Bourhim', 'Latifa', 'latifa.b@cf.ma', 'Base de données'),
 ('Draoui', 'Omar', 'omar.draoui@cf.ma', 'Web Development');
@@ -31,10 +31,10 @@ CREATE TABLE Module (
     ID_Module INT PRIMARY KEY AUTO_INCREMENT,
     Nom_Module VARCHAR(100),
     Description TEXT,
-    Durée INT -- en heures
+    Duree INT -- en heures
 );
 
-INSERT INTO Module (Nom_Module, Description, Durée) VALUES
+INSERT INTO Module (Nom_Module, Description, Duree) VALUES
 ('Programmation Java', 'Cours complet sur la programmation orientée objet en Java', 40),
 ('Base de Données', 'Introduction et manipulation des SGBD avec MySQL', 30),
 ('Développement Web', 'HTML, CSS, JavaScript pour créer des sites dynamiques', 35);
@@ -73,14 +73,14 @@ INSERT INTO Cours (Nom_Cours, Date_Cours, ID_Module) VALUES
 -- Table Certificat
 CREATE TABLE Certificat (
     ID_Certificat INT PRIMARY KEY AUTO_INCREMENT,
-    Date_Génération DATE,
+    Date_Generation DATE,
     ID_Etudiant INT,
     ID_Module INT,
     FOREIGN KEY (ID_Etudiant) REFERENCES etudiant(ID_Etudiant),
     FOREIGN KEY (ID_Module) REFERENCES Module(ID_Module)
 );
 
-INSERT INTO Certificat (Date_Génération, ID_Etudiant, ID_Module) VALUES
+INSERT INTO Certificat (Date_Generation, ID_Etudiant, ID_Module) VALUES
 ('2025-03-01', 1, 1),
 ('2025-04-01', 2, 2);
 -- Pas de certificat pour l’étudiant 3 car inscription annulée
