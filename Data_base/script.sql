@@ -63,13 +63,9 @@ CREATE TABLE Cours (
     Nom_Cours VARCHAR(20),
     Date_Cours DATE,
     ID_Module INT,
-<<<<<<< HEAD
     ID_Enseignant INT,
     FOREIGN KEY (ID_Module) REFERENCES Module(ID_Module) ON DELETE CASCADE,
     FOREIGN KEY (ID_Enseignant) REFERENCES Enseignant(ID_Enseignant) ON DELETE CASCADE
-=======
-    FOREIGN KEY (ID_Module) REFERENCES Module(ID_Module)
->>>>>>> 5af3e6dcb6a5c02b7cad26e8d5449a47c50f8f34
 );
 
 INSERT INTO Cours (Nom_Cours, Date_Cours, ID_Module) VALUES 
