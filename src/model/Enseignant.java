@@ -46,17 +46,13 @@ public class Enseignant {
         this.prenom = prenom;
     }
     public void setEmail(String email) {
-        if(email.contains('@')){
             this.email = email;
-        }else{
-            System.out.println("❌ Email invalide.");
-        }
     }
     public void setSpecialite(String specialite) {
         this.specialite = specialite;
     }
 
-    public String Afficher(){
+    public String afficher(){
         return("Enseignat{" +
                 "idEnseignant=" + idEnseignant + 
                 ", nom='" + nom + '\'' + 
