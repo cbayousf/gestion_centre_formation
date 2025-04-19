@@ -47,8 +47,8 @@ CREATE TABLE Inscription (
     ID_Etudiant INT,
     ID_Module INT,
     Date_Inscription DATE,
-    FOREIGN KEY (ID_Etudiant) REFERENCES etudiant(ID_Etudiant),
-    FOREIGN KEY (ID_Module) REFERENCES Module(ID_Module)
+    FOREIGN KEY (ID_Etudiant) REFERENCES etudiant(ID_Etudiant) ON DELETE CASCADE,
+    FOREIGN KEY (ID_Module) REFERENCES Module(ID_Module) ON DELETE CASCADE
 );
 
 INSERT INTO Inscription (Statut, ID_Etudiant, ID_Module, Date_Inscription) VALUES
@@ -62,8 +62,8 @@ CREATE TABLE Cours (
     Date_Cours DATE,
     ID_Module INT,
     ID_Enseignant INT,
-    FOREIGN KEY (ID_Module) REFERENCES Module(ID_Module),
-    FOREIGN KEY (ID_Enseignant) REFERENCES Enseignant(ID_Enseignant)
+    FOREIGN KEY (ID_Module) REFERENCES Module(ID_Module) ON DELETE CASCADE,
+    FOREIGN KEY (ID_Enseignant) REFERENCES Enseignant(ID_Enseignant) ON DELETE CASCADE
 );
 
 INSERT INTO Cours (Date_Cours, ID_Module, ID_Enseignant) VALUES
@@ -77,8 +77,8 @@ CREATE TABLE Certificat (
     Date_Génération DATE,
     ID_Etudiant INT,
     ID_Module INT,
-    FOREIGN KEY (ID_Etudiant) REFERENCES etudiant(ID_Etudiant),
-    FOREIGN KEY (ID_Module) REFERENCES Module(ID_Module)
+    FOREIGN KEY (ID_Etudiant) REFERENCES etudiant(ID_Etudiant) ON DELETE CASCADE,
+    FOREIGN KEY (ID_Module) REFERENCES Module(ID_Module) ON DELETE CASCADE
 );
 
 INSERT INTO Certificat (Date_Génération, ID_Etudiant, ID_Module) VALUES
@@ -92,8 +92,8 @@ CREATE TABLE Affectation (
     ID_Module INT,
     ID_Enseignant INT,
     Date_Affectation DATE,
-    FOREIGN KEY (ID_Module) REFERENCES Module(ID_Module),
-    FOREIGN KEY (ID_Enseignant) REFERENCES Enseignant(ID_Enseignant)
+    FOREIGN KEY (ID_Module) REFERENCES Module(ID_Module) ON DELETE CASCADE,
+    FOREIGN KEY (ID_Enseignant) REFERENCES Enseignant(ID_Enseignant) ON DELETE CASCADE
 );
 INSERT INTO Affectation (ID_Module, ID_Enseignant, Date_Affectation) VALUES
 (1, 1, '2025-01-10'),
