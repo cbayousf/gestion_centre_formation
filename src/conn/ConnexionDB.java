@@ -1,4 +1,5 @@
 package conn;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -6,12 +7,11 @@ import java.sql.SQLException;
 public class ConnexionDB {
     public static Connection getConnection() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver"); // Charger le driver
+            Class.forName("org.mariadb.jdbc.Driver");
             Connection conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/centre_formation", // URL
-                "root",       // utilisateur MySQL
-                ""            // mot de passe (vide si tu n’as rien mis)
-            );
+        "jdbc:mariadb://localhost:3306/centre_formation?useSSL=false&characterEncoding=utf8mb4",
+        "root", ""
+);
             System.out.println("✅ Connexion réussie à la base de données !");
             return conn;
         } catch (ClassNotFoundException e) {

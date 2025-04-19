@@ -43,7 +43,7 @@ public class EtudiantDAO {
     public void supprimerEtudiant(int id) {
         String sql = "DELETE FROM etudiant WHERE ID_Etudiant=?";
         try (Connection conn = ConnexionDB.getConnection(); 
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, id);
             stmt.executeUpdate();
         } catch (SQLException ex) {
@@ -55,7 +55,7 @@ public class EtudiantDAO {
     public Etudiant chercherEtudiant(int id) {
         String sql = "SELECT * FROM etudiant WHERE ID_Etudiant=?";
         try (Connection conn = ConnexionDB.getConnection(); 
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
@@ -78,8 +78,8 @@ public class EtudiantDAO {
         List<Etudiant> list = new ArrayList<>();
         String sql = "SELECT * FROM etudiant";
         try (Connection conn = ConnexionDB.getConnection(); 
-             Statement stmt = conn.createStatement(); 
-             ResultSet rs = stmt.executeQuery(sql)) {
+            Statement stmt = conn.createStatement(); 
+            ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
                 Etudiant e = new Etudiant(
                     rs.getInt("ID_Etudiant"),

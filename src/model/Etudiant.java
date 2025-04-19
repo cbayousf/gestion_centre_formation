@@ -35,8 +35,8 @@ public class Etudiant {
 	public void setEmail(String Email){ this.Email = Email; }
 	public void setTelephone(String Telephone){ this.Telephone = Telephone; }
 
-	public String Afficher(){
-        return("Etudiant{" +
+	public void Afficher(){
+        System.out.println("Etudiant{" +
                 "ID_Etudiant=" + ID_Etudiant + 
                 ", Nom='" + Nom + '\'' + 
                 ", Prenom='" + Prenom + '\'' + 

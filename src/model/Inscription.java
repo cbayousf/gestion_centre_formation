@@ -37,8 +37,8 @@ public class Inscription {
 	public void setID_Module(int ID_Module){ this.ID_Module = ID_Module; }
 	public void setDate_Inscription(LocalDate Date_Inscription){ this.Date_Inscription = Date_Inscription; }
 
-	public String Afficher(){
-        return("Inscription{" +
+	public void Afficher(){
+        System.out.println("Inscription{" +
                 "ID_Inscription=" + ID_Inscription + 
                 ", Statut='" + Statut + '\'' + 
                 ", ID_Etudiant='" + ID_Etudiant + '\'' + 
