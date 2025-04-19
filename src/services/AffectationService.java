@@ -1,4 +1,4 @@
-package service;
+package services;
 
 import dao.AffectationDAO;
 import model.Affectation;

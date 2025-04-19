@@ -1,4 +1,4 @@
-package service;
+package services;
 import model.Enseignant;
 import dao.EnseignantDAO;
 import java.util.List;
@@ -23,8 +23,8 @@ public class EnseignantService{
         enseignantDAO.ajouterEnseignant(e);
         return true;
     }
-    public void modifierEnseignant(int id){
-        enseignantDAO.modifierEnseignant(id);
+    public void modifierEnseignant(Enseignant e){
+        enseignantDAO.modifierEnseignant(e);
     }
 
     public void supprimerEnseignant(int id){
@@ -32,7 +32,7 @@ public class EnseignantService{
     }
 
     public Enseignant chercherEnseignant(int id){
-        return enseignantDAO.chercherEnseignant(id);
+        return enseignantDAO.rechercherEnseignant(id);
     }
 
     public List<Enseignant> listerEnseignant(){

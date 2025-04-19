@@ -51,7 +51,7 @@ public class EnseignantDAO {
             return false;
         }
     }    
-    public boolean supprimerEnseignant(int idEnseignant)
+    public void supprimerEnseignant(int idEnseignant)
     {
         String query = "DELETE FROM Enseignant WHERE ID_Enseignant = ?";
         try(Connection conn = ConnexionDB.getConnection();
@@ -59,11 +59,9 @@ public class EnseignantDAO {
 
                 pst.setInt(1, idEnseignant);
 
-                int rowsAffected = pst.executeUpdate();
-                return rowsAffected > 0;
+                 pst.executeUpdate();
             } catch (SQLException e){
                 e.printStackTrace();
-                return false;
             }
     }
     public Enseignant rechercherEnseignant(int idEnseignant){

@@ -74,8 +74,8 @@ public class Enseignant_test {
                     System.out.print("\nID de l'enseignant à supprimer : ");
                     int ids = scanner.nextInt();
                     scanner.nextLine();
-                    boolean deleted = dao.supprimerEnseignant(ids);
-                    if (deleted) {
+                    dao.supprimerEnseignant(ids);
+                    if (dao != null) {
                         System.out.println("🗑️ Enseignant supprimé !");
                     } else {
                         System.out.println("⚠️ Erreur lors de la suppression de l'enseignant.");

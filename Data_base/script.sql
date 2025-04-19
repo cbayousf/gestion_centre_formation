@@ -7,7 +7,7 @@ CREATE TABLE etudiant (
     Telephone VARCHAR(20)
 );
 
-INSERT INTO etudiant (Nom, Prénom, Email, Téléphone) VALUES
+INSERT INTO etudiant (Nom, Prenom, Email, Telephone) VALUES
 ('Benali', 'Youssef', 'youssef.benali@gmail.com', '0601010203'),
 ('El Khoury', 'Sara', 'sara.khoury@yahoo.com', '0612345678'),
 ('Ait Taleb', 'Nour', 'nour.ait@gmail.com', '0622233445');
@@ -63,7 +63,7 @@ CREATE TABLE Cours (
     Nom_Cours VARCHAR(20),
     Date_Cours DATE,
     ID_Module INT,
-    FOREIGN KEY (ID_Module) REFERENCES Module(ID_Module),
+    FOREIGN KEY (ID_Module) REFERENCES Module(ID_Module)
 );
 
 INSERT INTO Cours (Nom_Cours, Date_Cours, ID_Module) VALUES 

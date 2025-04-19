@@ -1,4 +1,4 @@
-package service;
+package services;
 
 import dao.CoursDAO;
 import dao.AffectationDAO;
@@ -16,24 +16,20 @@ public class CoursService {
     }
 
     public boolean ajouterCours(Cours cours){
-        List<Affectation> affectations = affectationDAO.getAllAffectation();
+        List<Affectation> affectations = affectationDAO.getAllAffectations();
         boolean enseignantAffecte = false;
         for(Affectation affect : affectations){
 
 
         }
-
-
-
-
-        coursDAO.ajouterCours(c);
+        coursDAO.ajouterCours(cours);
         return true;
     }
     public boolean modifierCours(Cours cours) {
         return coursDAO.modifierCours(cours);
     }
     public Cours chercherCours(int id){
-        return coursDAO.chercherCours(id);
+        return coursDAO.rechercherCours(id);
     }
     public boolean supprimerCours(int id){
         return coursDAO.supprimerCours(id);

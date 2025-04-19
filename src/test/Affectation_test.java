@@ -1,5 +1,6 @@
 package test;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
@@ -34,8 +35,9 @@ public class Affectation_test {
                     scanner.nextLine();
                     System.out.print("Date d'affectation (YYYY-MM-DD) : ");
                     String dateAffect = scanner.nextLine();
+                    LocalDate date = LocalDate.parse(dateAffect);
 
-                    Affectation a = new Affectation(0, idEns, idMod, dateAffect);
+                    Affectation a = new Affectation(0, idEns, idMod, date);
                     boolean added = dao.ajouterAffectation(a);
                     System.out.println(added ? "✅ Affectation ajoutée !" : "❌ Erreur lors de l'ajout.");
                     break;
@@ -52,7 +54,9 @@ public class Affectation_test {
                         am.setIdModule(scanner.nextInt());
                         scanner.nextLine();
                         System.out.print("Nouvelle date d'affectation [" + am.getDateAffect() + "] : ");
-                        am.setDateAffect(scanner.nextLine());
+                        String datem=scanner.nextLine();
+                        LocalDate dateM = LocalDate.parse(datem);
+                        am.setDateAffect(dateM);
 
                         boolean updated = dao.modifierAffectation(am);
                         System.out.println(updated ? "✅ Affectation modifiée !" : "❌ Erreur lors de la modification.");
@@ -84,7 +88,7 @@ public class Affectation_test {
 
                 case 5:
                     System.out.println("\n📚 Liste des affectations :");
-                    List<Affectation> affectations = dao.getAllAffectation();
+                    List<Affectation> affectations = dao.getAllAffectations();
                     if (affectations.isEmpty()) {
                         System.out.println("Aucune affectation trouvée.");
                     } else {
