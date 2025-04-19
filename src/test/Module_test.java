@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import dao.ModuleDAO;
-import model.Module;
+import model.ModuleFormation;
 
 public class Module_test {
     public static void main(String[] args) {
@@ -32,7 +32,7 @@ public class Module_test {
                     System.out.print("Durée (en heures) : ");
                     int duree = scanner.nextInt();
                     scanner.nextLine();
-                    Module m = new Module(0, nomModule, description, duree);
+                    ModuleFormation m = new ModuleFormation(0, nomModule, description, duree);
                     dao.ajouterModule(m);
                     System.out.println("Module ajouté !");
                     break;
@@ -40,7 +40,7 @@ public class Module_test {
                     System.out.print("\nID du module à modifier : ");
                     int idm = scanner.nextInt();
                     scanner.nextLine();
-                    Module moduleToModify = dao.chercherModule(idm);
+                    ModuleFormation moduleToModify = dao.chercherModule(idm);
                     if (moduleToModify != null) {
                         System.out.print("Nouveau nom du module [ " + moduleToModify.getNomModule() + " ]: ");
                         moduleToModify.setNomModule(scanner.nextLine());
@@ -66,7 +66,7 @@ public class Module_test {
                 case 4:
                     System.out.print("\nID du module à chercher : ");
                     int idc = scanner.nextInt();
-                    Module moduleToFind = dao.chercherModule(idc);
+                    ModuleFormation moduleToFind = dao.chercherModule(idc);
                     if (moduleToFind != null) {
                         System.out.println("\n Module trouvé :");
                         moduleToFind.afficher();
@@ -76,8 +76,8 @@ public class Module_test {
                     break;
                 case 5:
                     System.out.println("\nListe des modules :");
-                    List<Module> modules = dao.listerTous();
-                    for (Module module : modules) {
+                    List<ModuleFormation> modules = dao.listerTous();
+                    for (ModuleFormation module : modules) {
                         module.afficher();
                     }
                     break;

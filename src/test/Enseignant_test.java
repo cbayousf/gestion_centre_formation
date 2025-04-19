@@ -69,7 +69,6 @@ public class Enseignant_test {
                         System.out.println("⚠️ Enseignant introuvable !");
                     }
                     break;
-
                 case 3:
                     System.out.print("\nID de l'enseignant à supprimer : ");
                     int ids = scanner.nextInt();
@@ -81,7 +80,6 @@ public class Enseignant_test {
                         System.out.println("⚠️ Erreur lors de la suppression de l'enseignant.");
                     }
                     break;
-
                 case 4:
                     System.out.print("\nID de l'enseignant à chercher : ");
                     int idc = scanner.nextInt();
@@ -94,7 +92,6 @@ public class Enseignant_test {
                         System.out.println("⚠️ Enseignant introuvable !");
                     }
                     break;
-
                 case 5:
                     System.out.println("\n📚 Liste des enseignants :");
                     List<Enseignant> enseignants = dao.getAllEnseignants();
@@ -106,7 +103,6 @@ public class Enseignant_test {
                         }
                     }
                     break;
-
                 case 0:
                     System.out.println("👋 Au revoir !");
                     break;

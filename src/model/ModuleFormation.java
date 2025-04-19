@@ -1,13 +1,13 @@
 package model;
 
-public class Module {
+public class ModuleFormation {
     private int idModule;
     private String nomModule;
     private String description;
     private int duree;
 
-    public Module() {}
-    public Module(int idModule, String nomModule, String description, int duree)
+    public ModuleFormation() {}
+    public ModuleFormation(int idModule, String nomModule, String description, int duree)
     {
         this.idModule = idModule;
         this.nomModule = nomModule;

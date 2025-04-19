@@ -28,7 +28,7 @@ INSERT INTO Enseignant (nom, prenom, email, specialite) VALUES
 ('Draoui', 'Omar', 'omar.draoui@cf.ma', 'Web Development');
 
 -- Table Module
-CREATE TABLE Module (
+CREATE TABLE ModuleFormation (
     ID_Module INT PRIMARY KEY AUTO_INCREMENT,
     Nom_Module VARCHAR(100),
     Description TEXT,
@@ -63,13 +63,7 @@ CREATE TABLE Cours (
     Nom_Cours VARCHAR(20),
     Date_Cours DATE,
     ID_Module INT,
-<<<<<<< HEAD
-    ID_Enseignant INT,
-    FOREIGN KEY (ID_Module) REFERENCES Module(ID_Module) ON DELETE CASCADE,
-    FOREIGN KEY (ID_Enseignant) REFERENCES Enseignant(ID_Enseignant) ON DELETE CASCADE
-=======
-    FOREIGN KEY (ID_Module) REFERENCES Module(ID_Module)
->>>>>>> 5af3e6dcb6a5c02b7cad26e8d5449a47c50f8f34
+    FOREIGN KEY (ID_Module) REFERENCES Module(ID_Module) ON DELETE CASCADE
 );
 
 INSERT INTO Cours (Nom_Cours, Date_Cours, ID_Module) VALUES 

@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import conn.ConnexionDB;
-import model.Module;
+import model.ModuleFormation;
 
 public class ModuleDAO {
 
-    public void ajouterModule(Module m) {
+    public void ajouterModule(ModuleFormation m) {
         String sql = "INSERT INTO Module(Nom_Module, Description, Durée) VALUES (?, ?, ?)";
         try (Connection conn = ConnexionDB.getConnection(); 
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -23,7 +23,7 @@ public class ModuleDAO {
         }
     }
 
-    public void modifierModule(Module m) {
+    public void modifierModule(ModuleFormation m) {
         String sql = "UPDATE Module SET Nom_Module=?, Description=?, Durée=? WHERE ID_Module=?";
         try (Connection conn = ConnexionDB.getConnection(); 
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -50,14 +50,14 @@ public class ModuleDAO {
         }
     }
 
-    public Module chercherModule(int id) {
+    public ModuleFormation chercherModule(int id) {
         String sql = "SELECT * FROM Module WHERE ID_Module=?";
         try (Connection conn = ConnexionDB.getConnection(); 
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                return new Module(
+                return new ModuleFormation(
                     rs.getInt("ID_Module"),
                     rs.getString("Nom_Module"),
                     rs.getString("Description"),
@@ -71,14 +71,14 @@ public class ModuleDAO {
         return null;
     }
 
-    public List<Module> listerTous() {
-        List<Module> list = new ArrayList<>();
+    public List<ModuleFormation> listerTous() {
+        List<ModuleFormation> list = new ArrayList<>();
         String sql = "SELECT * FROM Module";
         try (Connection conn = ConnexionDB.getConnection(); 
              Statement stmt = conn.createStatement(); 
              ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
-                Module m = new Module(
+                ModuleFormation m = new ModuleFormation(
                     rs.getInt("ID_Module"),
                     rs.getString("Nom_Module"),
                     rs.getString("Description"),
