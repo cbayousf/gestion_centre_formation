@@ -51,7 +51,7 @@ public class Etudiant_test {
                         em.setPrenom(scanner.nextLine());
                         System.out.print("Nouveau Email [ "+em.getEmail()+" ]: ");
                         em.setEmail(scanner.nextLine());
-                        System.out.print("Nouveau Nom [ "+em.getTelephone()+" ]: ");
+                        System.out.print("Nouveau telephone [ "+em.getTelephone()+" ]: ");
                         em.setTelephone(scanner.nextLine());
 
                         dao.modifierEtudiant(em);
