@@ -1,40 +1,59 @@
 package services;
 
 import dao.CoursDAO;
-import dao.AffectationDAO;
+import dao.ModuleDAO;
 import model.Cours;
-import model.Affectation;
+import model.Module;
 import java.util.List;
 
 public class CoursService {
     private CoursDAO coursDAO;
-    private AffectationDAO affectationDAO;
+    private ModuleDAO moduleDAO;
 
     public CoursService(){
         coursDAO = new CoursDAO();
-        affectationDAO = new AffectationDAO();
+        moduleDAO = new ModuleDAO();
     }
-
-    public boolean ajouterCours(Cours cours){
-        List<Affectation> affectations = affectationDAO.getAllAffectations();
-        boolean enseignantAffecte = false;
-        for(Affectation affect : affectations){
-
-
+    public void ajouterCours(Cours cours){
+        if (cours != null && cours.getIdModule() > 0) {
+            Module module = moduleDAO.chercherModule(cours.getIdModule());
+            if(module != null){
+                coursDAO.ajouterCours(cours);
+                System.out.println("✅ Cours ajouté avec succès !");
+            }
+            else{
+                System.out.println("❌ Module introuvable.");
+            }
         }
-        coursDAO.ajouterCours(cours);
-        return true;
+        else{
+            System.out.println("❌ Données du cours invalides.");
+        }
     }
-    public boolean modifierCours(Cours cours) {
-        return coursDAO.modifierCours(cours);
+    public void modifierCours(Cours cours) {
+        if(cours != null && cours.getIdCours() > 0){
+            coursDAO.modifierCours(cours);
+            System.out.println("✅ Cours modifié avec succès !");
+        }else{
+            System.out.println("❌ Cours invalide pour modification.");
+        }
     }
     public Cours chercherCours(int id){
-        return coursDAO.rechercherCours(id);
+        if (id > 0){
+            return coursDAO.rechercherCours(id);
+        }else{
+            System.out.println("❌ ID de cours invalide pour recherche.");
+            return null;
+        }
     }
-    public boolean supprimerCours(int id){
-        return coursDAO.supprimerCours(id);
+    public void supprimerCours(int id){
+        if (id > 0){
+            coursDAO.supprimerCours(id);
+            System.out.println("✅ Cours supprimé avec succès !");
+        }else{
+            System.out.println("❌ ID de cours invalide pour suppression.");
+        }
     }
-    public List<Cours> listerCours(){
-        return coursDAO.getAllCours();
+    public List<Cours> listerCoursParModule(int idModule){
+        return coursDAO.getAllCours().stream().filter(c -> c.getIdModule() == idModule).toList();
     }
 }
