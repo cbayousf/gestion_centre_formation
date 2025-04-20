@@ -18,10 +18,10 @@ public class EnseignantService{
             {
                 System.out.println("⚠️ Email déjà utilisé.");
             }
-        }
-        else{
-            enseignantDAO.ajouterEnseignant(e);
-            System.out.println("✅ Enseignant ajouté avec succès !");
+            else{
+                enseignantDAO.ajouterEnseignant(e);
+                System.out.println("✅ Enseignant ajouté avec succès !");
+            }
         }
     }
     public void modifierEnseignant(Enseignant e){
