@@ -3,8 +3,9 @@ package services;
 import dao.CoursDAO;
 import dao.ModuleDAO;
 import model.Cours;
-import model.Module;
+import model.ModuleFormation;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CoursService {
     private CoursDAO coursDAO;
@@ -16,7 +17,7 @@ public class CoursService {
     }
     public void ajouterCours(Cours cours){
         if (cours != null && cours.getIdModule() > 0) {
-            Module module = moduleDAO.chercherModule(cours.getIdModule());
+            ModuleFormation module = moduleDAO.chercherModule(cours.getIdModule());
             if(module != null){
                 coursDAO.ajouterCours(cours);
                 System.out.println("✅ Cours ajouté avec succès !");
@@ -54,6 +55,6 @@ public class CoursService {
         }
     }
     public List<Cours> listerCoursParModule(int idModule){
-        return coursDAO.getAllCours().stream().filter(c -> c.getIdModule() == idModule).toList();
+        return coursDAO.getAllCours();
     }
 }

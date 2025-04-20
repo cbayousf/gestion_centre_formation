@@ -4,10 +4,11 @@ import dao.AffectationDAO;
 import dao.EnseignantDAO;
 import dao.ModuleDAO;
 import model.Affectation;
-import model.EnseignantDAO;
-import model.ModuleDAO;
+import model.Enseignant;
+import model.ModuleFormation;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class AffectationService { 
     private AffectationDAO affectationDAO;
@@ -24,8 +25,8 @@ public class AffectationService {
     }
     public void ajouterAffectation(Affectation affectation){
         if(affectation != null && affectation.getIdEnseignant() > 0 && affectation.getIdModule() > 0){
-            Enseignant enseignant = rechercherEnseignant(affectation.getIdEnseignant());
-            Module module =  chercherModule(affectation.getIdModule());
+            Enseignant enseignant = enseignantDAO.rechercherEnseignant(affectation.getIdEnseignant());
+            ModuleFormation module = moduleDAO.chercherModule(affectation.getIdModule());
             if(enseignant != null & module != null)
             {
                 affectationDAO.ajouterAffectation(affectation);
@@ -68,6 +69,7 @@ public class AffectationService {
         return affectationDAO.getAllAffectations().stream()
                 .filter(a -> a.getIdEnseignant() == idEnseignant)
                 .collect(Collectors.toList()); 
+    }
 
     public List<Affectation> ListerAffectationsParModule(int idModule) {
         return affectationDAO.getAllAffectations().stream()
