@@ -10,31 +10,45 @@ public class EnseignantService{
         enseignantDAO = new EnseignantDAO();
     }
 
-    public boolean ajouterEnseignant(Enseignant e){
+    public void ajouterEnseignant(Enseignant e){
 
         List <Enseignant> enseignants = enseignantDAO.getAllEnseignants();
         for(Enseignant ens : enseignants){
             if(ens.getEmail().equalsIgnoreCase(e.getEmail()))
             {
                 System.out.println("⚠️ Email déjà utilisé.");
-                return false;
             }
         }
-        enseignantDAO.ajouterEnseignant(e);
-        return true;
+        else{
+            enseignantDAO.ajouterEnseignant(e);
+            System.out.println("✅ Enseignant ajouté avec succès !");
+        }
     }
     public void modifierEnseignant(Enseignant e){
-        enseignantDAO.modifierEnseignant(e);
+        if (e != null && e.getIdEnseignant() > 0) {
+            enseignantDAO.modifierEnseignant(e);
+            System.out.println("✅ Enseignant modifié avec succès !");
+        } else{
+            System.out.println("❌ Enseignant invalide pour modification.");
+        }
     }
 
     public void supprimerEnseignant(int id){
-        enseignantDAO.supprimerEnseignant(id);
+        if (id > 0){
+            enseignantDAO.supprimerEnseignant(id);
+            System.out.println("✅ Enseignant supprimé avec succès !");
+        } else{
+            System.out.println("❌ Enseignant invalide pour modification.");
+        }
     }
-
     public Enseignant chercherEnseignant(int id){
-        return enseignantDAO.rechercherEnseignant(id);
+        if (id > 0){
+            return enseignantDAO.rechercherEnseignant(id);
+        } else{
+            System.out.println("❌ ID d'enseignant invalide pour recherche.");
+            return null;
+        }
     }
-
     public List<Enseignant> listerEnseignant(){
         return enseignantDAO.getAllEnseignants();
     }
