@@ -14,7 +14,7 @@ import model.Affectation;
 
 public class AffectationDAO {
 
-    public boolean ajouterAffectation(Affectation affectation) {
+    public void ajouterAffectation(Affectation affectation) {
         String query = "INSERT INTO Affectation (ID_Enseignant, ID_Module, Date_Affectation) VALUES (?, ?, ?)";
         try (Connection conn = ConnexionDB.getConnection();
              PreparedStatement pst = conn.prepareStatement(query)) {
@@ -23,15 +23,13 @@ public class AffectationDAO {
             pst.setInt(2, affectation.getIdModule());
             pst.setDate(3, Date.valueOf(affectation.getDateAffect()));
     
-            int rowsAffected = pst.executeUpdate();
-            return rowsAffected > 0;
-    
+            pst.executeUpdate();
         } catch (SQLException e) {
+            System.err.println("Erreur lors de l ajout d une affectation");
             e.printStackTrace();
-            return false;
         }
     }    
-    public boolean modifierAffectation(Affectation affectation) {
+    public void modifierAffectation(Affectation affectation) {
         String query = "UPDATE Affectation SET ID_Enseignant = ?, ID_Module = ?, Date_Affectation = ? WHERE ID_E = ?";
     
         try (Connection conn = ConnexionDB.getConnection();
@@ -41,28 +39,23 @@ public class AffectationDAO {
             pst.setInt(2, affectation.getIdModule());
             pst.setDate(3, Date.valueOf(affectation.getDateAffect()));
             pst.setInt(4, affectation.getIdE());
-    
-            int rowsAffected = pst.executeUpdate();
-            return rowsAffected > 0;
-    
+            pst.executeUpdate();
         } catch (SQLException e) {
+            System.err.println("Erreur lors de la modification d une affectation");
             e.printStackTrace();
-            return false;
         }
     }      
-    public boolean supprimerAffectation(int idE)
+    public void supprimerAffectation(int idE)
     {
         String query = "DELETE FROM Affectation WHERE id_E = ?";
         try(Connection conn = ConnexionDB.getConnection();
             PreparedStatement pst = conn.prepareStatement(query)){
 
                 pst.setInt(1, idE);
-
-                int rowsAffected = pst.executeUpdate();
-                return rowsAffected > 0;
+                pst.executeUpdate();
             } catch (SQLException e){
+                System.err.println("Erreur lors de la suppression d une affectation");
                 e.printStackTrace();
-                return false;
             }
     }
     public Affectation rechercherAffectation(int idE) {
@@ -83,19 +76,20 @@ public class AffectationDAO {
                 affectation.setDateAffect(rs.getDate("Date_Affectation").toLocalDate());
             }
         } catch (SQLException e) {
+            System.err.println("Erreur lors de la recherche d une affectation");
             e.printStackTrace();
         }
         return affectation;
     }    
-    public List<Affectation> getAllAffectations() {
-        String query = "SELECT * FROM Affectation";
+    public List<Affectation> getAllAffectationsParModule(int ID_Module) {
+        String query = "SELECT * FROM Affectation where ID_Module = ?";
         List<Affectation> affectations = new ArrayList<>();
     
         try (Connection conn = ConnexionDB.getConnection();
              PreparedStatement pst = conn.prepareStatement(query)) {
-    
+
+            pst.setInt(1, ID_Module);
             ResultSet rs = pst.executeQuery();
-    
             while (rs.next()) {
                 Affectation affectation = new Affectation();
                 affectation.setIdE(rs.getInt("ID_E"));
@@ -107,15 +101,35 @@ public class AffectationDAO {
             }
     
         } catch (SQLException e) {
+            System.err.println("Erreur lors de l'affichage des Affectations par Module");
             e.printStackTrace();
         }
         return affectations;
-    }  
-    public void afficherAffectation(){
-        List<Affectation> affectations = getAllAffectations();
+    }
 
-        for (Affectation affectation : affectations){
-            System.out.println(affectation.afficher());
+        public List<Affectation> getAllAffectationsParEnseignant(int ID_Enseignant) {
+        String query = "SELECT * FROM Affectation where ID_Enseignant = ?";
+        List<Affectation> affectations = new ArrayList<>();
+    
+        try (Connection conn = ConnexionDB.getConnection();
+             PreparedStatement pst = conn.prepareStatement(query)) {
+
+            pst.setInt(1, ID_Etudiant);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Affectation affectation = new Affectation();
+                affectation.setIdE(rs.getInt("ID_E"));
+                affectation.setIdEnseignant(rs.getInt("ID_Enseignant"));
+                affectation.setIdModule(rs.getInt("ID_Module"));
+                affectation.setDateAffect(rs.getDate("Date_Affectation").toLocalDate());
+    
+                affectations.add(affectation);
+            }
+    
+        } catch (SQLException e) {
+            System.err.println("Erreur lors de l'affichage des Affectations par Enseignant");
+            e.printStackTrace();
         }
+        return affectations;
     }
 }

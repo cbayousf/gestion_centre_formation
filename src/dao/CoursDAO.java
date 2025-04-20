@@ -15,7 +15,7 @@ import model.Cours;
 
 public class CoursDAO {
 
-    public boolean ajouterCours(Cours cours)
+    public void ajouterCours(Cours cours)
     {
         String query = "INSERT INTO Cours (Nom_Cours, Date_Cours, ID_Module) VALUES (?, ?, ?)";
         try (Connection conn = ConnexionDB.getConnection();
@@ -25,48 +25,42 @@ public class CoursDAO {
             pst.setDate(2, java.sql.Date.valueOf(cours.getDateCours()));
             pst.setInt(3, cours.getIdModule());
     
-            int rowsAffected = pst.executeUpdate();
-            return rowsAffected > 0;
+            pst.executeUpdate();
     
         } catch (SQLException e) {
+            System.err.println("Erreur lors de l ajout d un cours");
             e.printStackTrace();
-            return false;
         }
     }
     
-    public boolean modifierCours(Cours cours) {
+    public void modifierCours(Cours cours) {
         String query = "UPDATE Cours SET Nom_Cours = ?, Date_Cours = ?, ID_Module = ? WHERE ID_Cours = ?";
     
         try (Connection conn = ConnexionDB.getConnection();
              PreparedStatement pst = conn.prepareStatement(query)) {
 
-                pst.setString(1, cours.getNomCours());
-                pst.setDate(2, java.sql.Date.valueOf(cours.getDateCours()));
-                pst.setInt(3, cours.getIdModule());
-                pst.setInt(4, cours.getIdCours());
+            pst.setString(1, cours.getNomCours());
+            pst.setDate(2, java.sql.Date.valueOf(cours.getDateCours()));
+            pst.setInt(3, cours.getIdModule());
+            pst.setInt(4, cours.getIdCours());
             
-    
-            int rowsAffected = pst.executeUpdate();
-            return rowsAffected > 0;
-    
+            pst.executeUpdate();
         } catch (SQLException e) {
+            System.err.println("Erreur lors de la modification d un cours");
             e.printStackTrace();
-            return false;
         }
     }    
-    public boolean supprimerCours(int idCours)
+    public void supprimerCours(int idCours)
     {
         String query = "DELETE FROM Cours WHERE ID_Cours  = ?";
         try(Connection conn = ConnexionDB.getConnection();
             PreparedStatement pst = conn.prepareStatement(query)){
 
                 pst.setInt(1, idCours);
-
-                int rowsAffected = pst.executeUpdate();
-                return rowsAffected > 0;
+                pst.executeUpdate();
             } catch (SQLException e){
+                System.err.println("Erreur lors de la suppression d un cours");
                 e.printStackTrace();
-                return false;
             }
     }
     public Cours rechercherCours(int idCours) {
@@ -87,20 +81,22 @@ public class CoursDAO {
                 cours.setIdModule(rs.getInt("ID_Module"));
             }
         } catch (SQLException e) {
+            System.err.println("Erreur lors de la recherche d un cours");
             e.printStackTrace();
         }
         return cours;
     }
     
-    public List<Cours> getAllCours() {
-        String query = "SELECT * FROM Cours";
+    public List<Cours> getAllCoursParModule(int ID_Module) {
+        String query = "SELECT * FROM Cours WHERE ID_Module = ?";
         List<Cours> lesCours = new ArrayList<>();
     
         try (Connection conn = ConnexionDB.getConnection();
              PreparedStatement pst = conn.prepareStatement(query)) {
     
             ResultSet rs = pst.executeQuery();
-    
+            stmt.setInt(1, ID_Module);
+
             while (rs.next()) {
                 Cours cours = new Cours();
                 cours.setIdCours(rs.getInt("ID_Cours"));
@@ -112,17 +108,10 @@ public class CoursDAO {
             }
     
         } catch (SQLException e) {
+            System.err.println("Erreur lors de l'affichage des cours par module");
             e.printStackTrace();
         }
         return lesCours;
-    }
-    
-    public void afficherCours(){
-        List<Cours> lesCours = getAllCours();
-
-        for (Cours cours : lesCours){
-            System.out.println(cours.afficher());
-        }
     }
 
 }

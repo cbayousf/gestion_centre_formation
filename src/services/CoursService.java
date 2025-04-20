@@ -55,6 +55,6 @@ public class CoursService {
         }
     }
     public List<Cours> listerCoursParModule(int idModule){
-        return coursDAO.getAllCours();
+        return coursDAO.getAllCoursParModule();
     }
 }

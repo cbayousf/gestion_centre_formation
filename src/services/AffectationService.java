@@ -66,14 +66,10 @@ public class AffectationService {
         }
     }
     public List<Affectation> ListerAffectationsParEnseignant(int idEnseignant) {
-        return affectationDAO.getAllAffectations().stream()
-                .filter(a -> a.getIdEnseignant() == idEnseignant)
-                .collect(Collectors.toList()); 
+        return affectationDAO.getAllAffectationsParEnseignant(); 
     }
 
     public List<Affectation> ListerAffectationsParModule(int idModule) {
-        return affectationDAO.getAllAffectations().stream()
-                .filter(a -> a.getIdModule() == idModule) 
-                .collect(Collectors.toList());
+        return affectationDAO.getAllAffectationsParModule();
     }
 }

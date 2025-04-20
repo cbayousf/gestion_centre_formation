@@ -13,7 +13,7 @@ import model.Enseignant;
 
 public class EnseignantDAO {
 
-    public boolean  ajouterEnseignant(Enseignant enseignant)
+    public void  ajouterEnseignant(Enseignant enseignant)
     {
         String query = "INSERT INTO Enseignant (nom, prenom, email, specialite) VALUES (?, ?, ?, ?)";
         try(Connection conn = ConnexionDB.getConnection();
@@ -24,14 +24,13 @@ public class EnseignantDAO {
                 pst.setString(3, enseignant.getEmail());
                 pst.setString(4, enseignant.getSpecialite());
 
-                int rowsAffected = pst.executeUpdate();
-                return rowsAffected > 0;
+                pst.executeUpdate();
         }catch(SQLException e){
+            System.err.println("Erreur lors de l ajout d un enseignant");
             e.printStackTrace();
-            return false;
         }
     }
-    public boolean modifierEnseignant(Enseignant enseignant) {
+    public void modifierEnseignant(Enseignant enseignant) {
         String query = "UPDATE Enseignant SET nom = ?, prenom = ?, email = ?, specialite = ? WHERE ID_Enseignant = ?";
     
         try (Connection conn = ConnexionDB.getConnection();
@@ -43,12 +42,11 @@ public class EnseignantDAO {
             pst.setString(4, enseignant.getSpecialite());
             pst.setInt(5, enseignant.getIdEnseignant());
     
-            int rowsAffected = pst.executeUpdate();
-            return rowsAffected > 0;
+            pst.executeUpdate();
     
         } catch (SQLException e) {
+            System.err.println("Erreur lors de la modification d un enseignant");
             e.printStackTrace();
-            return false;
         }
     }    
     public void supprimerEnseignant(int idEnseignant)
@@ -61,6 +59,7 @@ public class EnseignantDAO {
 
                  pst.executeUpdate();
             } catch (SQLException e){
+                System.err.println("Erreur lors de la suppression d un enseignant");
                 e.printStackTrace();
             }
     }
@@ -83,6 +82,7 @@ public class EnseignantDAO {
                     enseignant.setSpecialite(rs.getString("specialite"));
                 }
             }catch (SQLException e){
+                System.err.println("Erreur lors de la recherche d un enseignant");
                 e.printStackTrace();
             }
             return enseignant;
@@ -108,16 +108,9 @@ public class EnseignantDAO {
             }
     
         } catch (SQLException e) {
+            System.err.println("Erreur lors de l'affichage des enseignants");
             e.printStackTrace();
         }
         return enseignants;
     }
-    public void afficherEnseignant(){
-        List<Enseignant> enseignants = getAllEnseignants();
-
-        for (Enseignant enseignant : enseignants){
-            System.out.println(enseignant.afficher());
-        }
-    }
-
 }
