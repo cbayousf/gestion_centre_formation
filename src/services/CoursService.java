@@ -5,7 +5,6 @@ import dao.ModuleDAO;
 import model.Cours;
 import model.ModuleFormation;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class CoursService {
     private CoursDAO coursDAO;
@@ -55,6 +54,6 @@ public class CoursService {
         }
     }
     public List<Cours> listerCoursParModule(int idModule){
-        return coursDAO.getAllCoursParModule();
+        return coursDAO.getAllCoursParModule(idModule);
     }
 }

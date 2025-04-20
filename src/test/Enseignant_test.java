@@ -36,12 +36,8 @@ public class Enseignant_test {
                     System.out.print("Spécialité : ");
                     String specialite = scanner.nextLine();
                     Enseignant e = new Enseignant(0, nom, prenom, email, specialite);
-                    boolean added = dao.ajouterEnseignant(e);
-                    if (added) {
-                        System.out.println("✅ Enseignant ajouté !");
-                    } else {
-                        System.out.println("⚠️ Erreur lors de l'ajout de l'enseignant.");
-                    }
+                    dao.ajouterEnseignant(e);
+                    System.out.println("✅ Enseignant ajouté !");
                     break;
                 
                 case 2:
@@ -59,12 +55,8 @@ public class Enseignant_test {
                         System.out.print("Nouvelle Spécialité [" + em.getSpecialite() + "] : ");
                         em.setSpecialite(scanner.nextLine());
 
-                        boolean modified = dao.modifierEnseignant(em);
-                        if (modified) {
-                            System.out.println("✅ Enseignant modifié !");
-                        } else {
-                            System.out.println("⚠️ Erreur lors de la modification de l'enseignant.");
-                        }
+                        dao.modifierEnseignant(em);
+                        System.out.println("✅ Enseignant modifié !");
                     } else {
                         System.out.println("⚠️ Enseignant introuvable !");
                     }
@@ -74,11 +66,7 @@ public class Enseignant_test {
                     int ids = scanner.nextInt();
                     scanner.nextLine();
                     dao.supprimerEnseignant(ids);
-                    if (dao != null) {
-                        System.out.println("🗑️ Enseignant supprimé !");
-                    } else {
-                        System.out.println("⚠️ Erreur lors de la suppression de l'enseignant.");
-                    }
+                    System.out.println("🗑️ Enseignant supprimé !");
                     break;
                 case 4:
                     System.out.print("\nID de l'enseignant à chercher : ");

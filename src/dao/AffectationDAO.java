@@ -80,7 +80,30 @@ public class AffectationDAO {
             e.printStackTrace();
         }
         return affectation;
-    }    
+    }
+    public List<Affectation> getAllAffectations() {
+        String query = "SELECT * FROM Affectation ";
+        List<Affectation> affectations = new ArrayList<>();
+    
+        try (Connection conn = ConnexionDB.getConnection();
+             PreparedStatement pst = conn.prepareStatement(query)) {
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Affectation affectation = new Affectation();
+                affectation.setIdE(rs.getInt("ID_E"));
+                affectation.setIdEnseignant(rs.getInt("ID_Enseignant"));
+                affectation.setIdModule(rs.getInt("ID_Module"));
+                affectation.setDateAffect(rs.getDate("Date_Affectation").toLocalDate());
+    
+                affectations.add(affectation);
+            }
+    
+        } catch (SQLException e) {
+            System.err.println("Erreur lors de l'affichage des Affectations par Module");
+            e.printStackTrace();
+        }
+        return affectations;
+    }  
     public List<Affectation> getAllAffectationsParModule(int ID_Module) {
         String query = "SELECT * FROM Affectation where ID_Module = ?";
         List<Affectation> affectations = new ArrayList<>();
@@ -114,7 +137,7 @@ public class AffectationDAO {
         try (Connection conn = ConnexionDB.getConnection();
              PreparedStatement pst = conn.prepareStatement(query)) {
 
-            pst.setInt(1, ID_Etudiant);
+            pst.setInt(1, ID_Enseignant);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 Affectation affectation = new Affectation();

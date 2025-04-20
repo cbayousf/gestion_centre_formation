@@ -37,8 +37,8 @@ public class Cours_test {
                     scanner.nextLine();
 
                     Cours nouveauCours = new Cours(0, nomCours, dateCours, idModule);
-                    boolean ajoute = dao.ajouterCours(nouveauCours);
-                    System.out.println(ajoute ? "✅ Cours ajouté avec succès !" : "❌ Échec de l'ajout.");
+                    dao.ajouterCours(nouveauCours);
+                    System.out.println( "✅ Cours ajouté avec succès !");
                     break;
 
                 case 2:
@@ -55,8 +55,8 @@ public class Cours_test {
                         coursExistant.setIdModule(scanner.nextInt());
                         scanner.nextLine();
 
-                        boolean modifie = dao.modifierCours(coursExistant);
-                        System.out.println(modifie ? "✅ Cours modifié !" : "❌ Erreur lors de la modification.");
+                        dao.modifierCours(coursExistant);
+                        System.out.println( "✅ Cours modifié !");
                     } else {
                         System.out.println("⚠️ Cours introuvable !");
                     }
@@ -66,10 +66,10 @@ public class Cours_test {
                     System.out.print("\nID du cours à supprimer : ");
                     int idSupprimer = scanner.nextInt();
                     scanner.nextLine();
-                    boolean supprime = dao.supprimerCours(idSupprimer);
-                    System.out.println(supprime ? "🗑️ Cours supprimé !" : "⚠️ Erreur lors de la suppression.");
+                    dao.supprimerCours(idSupprimer);
+                    System.out.println( "🗑️ Cours supprimé !");
                     break;
-
+ 
                 case 4:
                     System.out.print("\nID du cours à chercher : ");
                     int idChercher = scanner.nextInt();
@@ -85,7 +85,9 @@ public class Cours_test {
 
                 case 5:
                     System.out.println("\n📚 Liste des cours :");
-                    List<Cours> coursList = dao.getAllCours();
+                    System.out.println("\nID du module à afficher : ");
+                    int idm = scanner.nextInt();
+                    List<Cours> coursList = dao.getAllCoursParModule(idm);
                     if (coursList.isEmpty()) {
                         System.out.println("Aucun cours enregistré.");
                     } else {

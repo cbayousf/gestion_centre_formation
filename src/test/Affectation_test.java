@@ -38,8 +38,8 @@ public class Affectation_test {
                     LocalDate date = LocalDate.parse(dateAffect);
 
                     Affectation a = new Affectation(0, idEns, idMod, date);
-                    boolean added = dao.ajouterAffectation(a);
-                    System.out.println(added ? "✅ Affectation ajoutée !" : "❌ Erreur lors de l'ajout.");
+                    dao.ajouterAffectation(a);
+                    System.out.println("✅ Affectation ajoutée !");
                     break;
 
                 case 2:
@@ -58,8 +58,8 @@ public class Affectation_test {
                         LocalDate dateM = LocalDate.parse(datem);
                         am.setDateAffect(dateM);
 
-                        boolean updated = dao.modifierAffectation(am);
-                        System.out.println(updated ? "✅ Affectation modifiée !" : "❌ Erreur lors de la modification.");
+                       dao.modifierAffectation(am);
+                        System.out.println("✅ Affectation modifiée !");
                     } else {
                         System.out.println("⚠️ Affectation introuvable !");
                     }
@@ -69,8 +69,8 @@ public class Affectation_test {
                     System.out.print("\nID de l'affectation à supprimer : ");
                     int ids = scanner.nextInt();
                     scanner.nextLine();
-                    boolean deleted = dao.supprimerAffectation(ids);
-                    System.out.println(deleted ? "🗑️ Affectation supprimée !" : "⚠️ Erreur lors de la suppression.");
+                    dao.supprimerAffectation(ids);
+                    System.out.println( "🗑️ Affectation supprimée !");
                     break;
 
                 case 4:

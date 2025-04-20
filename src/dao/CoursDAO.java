@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Date;
 
 
 import conn.ConnexionDB;
@@ -95,7 +94,7 @@ public class CoursDAO {
              PreparedStatement pst = conn.prepareStatement(query)) {
     
             ResultSet rs = pst.executeQuery();
-            stmt.setInt(1, ID_Module);
+            pst.setInt(1, ID_Module);
 
             while (rs.next()) {
                 Cours cours = new Cours();

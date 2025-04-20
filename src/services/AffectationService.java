@@ -8,7 +8,6 @@ import model.Enseignant;
 import model.ModuleFormation;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class AffectationService { 
     private AffectationDAO affectationDAO;
@@ -66,10 +65,10 @@ public class AffectationService {
         }
     }
     public List<Affectation> ListerAffectationsParEnseignant(int idEnseignant) {
-        return affectationDAO.getAllAffectationsParEnseignant(); 
+        return affectationDAO.getAllAffectationsParEnseignant(idEnseignant); 
     }
 
     public List<Affectation> ListerAffectationsParModule(int idModule) {
-        return affectationDAO.getAllAffectationsParModule();
+        return affectationDAO.getAllAffectationsParModule(idModule);
     }
 }
