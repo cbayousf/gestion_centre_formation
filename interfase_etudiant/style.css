@@ -1,0 +1,376 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #fffdf8;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #46295a;
+    border-radius: 5px;
+    margin-right: 10px;
+    position: relative;
+}
+
+.logo-icon::before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 2px;
+    border: 3px solid white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.sign-in-btn {
+    background-color: #46295a;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    padding: 100px 0;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #1a1a2e;
+}
+
+.hero-title .highlight-orange {
+    color: #e67e22;
+}
+
+.hero-title .highlight-future {
+    color: #f39c12;
+}
+
+.hero-description {
+    font-size: 18px;
+    color: #777;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* Search Bar */
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 50px;
+    padding: 10px 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    max-width: 500px;
+}
+
+.search-icon {
+    margin-right: 10px;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 10px 0;
+}
+
+.continue-btn {
+    background-color: #46295a;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+/* Background Elements */
+.bg-circle {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background-color: rgba(255, 236, 179, 0.5);
+    top: 100px;
+    right: -100px;
+    z-index: -1;
+}
+
+.bg-icons {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -2;
+}
+
+.bg-icon {
+    position: absolute;
+    stroke: #e0e0e0;
+    stroke-width: 1;
+    fill: none;
+}
+
+.icon-ruler {
+    top: 150px;
+    right: 250px;
+    transform: rotate(45deg);
+}
+
+.icon-computer {
+    top: 200px;
+    right: 100px;
+}
+
+.icon-lightbulb1 {
+    top: 150px;
+    right: 50px;
+}
+
+.icon-atom {
+    top: 50px;
+    right: -50px;
+}
+
+.icon-triangle {
+    bottom: 150px;
+    left: 400px;
+    transform: rotate(-30deg);
+}
+
+.icon-lightbulb2 {
+    bottom: 100px;
+    right: 200px;
+}
+
+.icon-target {
+    bottom: 50px;
+    right: 100px;
+}
+
+.icon-globe {
+    bottom: 50px;
+    right: -50px;
+}
+
+.icon-flask {
+    bottom: 200px;
+    left: 100px;
+}
+
+.icon-bubble {
+    top: 200px;
+    left: 150px;
+}
+
+.bg-circle {
+    /* other properties */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.circle-image {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+/* Formation Section */
+.formation-section {
+    padding: 80px 0;
+    position: relative;
+}
+
+.formation-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.formation-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #1a1a2e;
+    margin-bottom: 10px;
+}
+
+.formation-subtitle {
+    font-size: 16px;
+    color: #777;
+}
+
+.lightbulb-icon {
+    position: absolute;
+    left: 180px;
+    top: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+.arrow-icon {
+    position: absolute;
+    right: 180px;
+    top: 10px;
+    width: 60px;
+    height: 60px;
+}
+
+.courses-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.course-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    width: calc(33.33% - 20px);
+    min-width: 300px;
+}
+
+.course-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.course-content {
+    padding: 15px;
+}
+
+.course-category {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.course-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.course-rating {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.star {
+    color: #f39c12;
+    font-size: 16px;
+    margin-right: 2px;
+}
+
+.course-duration {
+    display: flex;
+    align-items: center;
+    color: #777;
+    font-size: 14px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.clock-icon {
+    margin-right: 5px;
+}
+
+.join-button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.join-course-btn {
+    background-color: #f97316; /* Tailwind orange-500 */
+    color: white;
+    border: none;
+    border-radius: 999px; /* Full rounded */
+    padding: 10px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.join-course-btn:hover {
+    background-color: #ea580c; /* Slightly darker orange */
+    transform: translateY(-2px);
+}
+
+.join-course-btn:active {
+    transform: scale(0.98);
+}
