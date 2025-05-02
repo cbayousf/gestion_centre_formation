@@ -7,11 +7,9 @@ import java.sql.SQLException;
 public class ConnexionDB {
     public static Connection getConnection() {
         try {
-            Class.forName("org.mariadb.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection(
-        "jdbc:mariadb://localhost:3306/centre_formation?useSSL=false&characterEncoding=utf8mb4",
-        "root", ""
-);
+        "jdbc:mysql://localhost:3306/centre_formation","root","");
             System.out.println("✅ Connexion réussie à la base de données !");
             return conn;
         } catch (ClassNotFoundException e) {
