@@ -4,6 +4,6 @@ javac -cp ".:lib/mysql-connector-j-9.3.0.jar" -d bin .\src\conn\ConnexionDB.java
 java -cp "bin;lib/mysql-connector-j-9.3.0.jar" Main
 
 //test
-javac -cp "lib/mariadb-java-client-3.5.3.jar" -d bin src/conn/ConnexionDB.java src/model/Etudiant.java src/dao/EtudiantDAO.java src/test/Etudiant_test.java
+javac -cp "lib/mysql-connector-j-9.3.0.jar" -d bin src/conn/ConnexionDB.java src/model/Etudiant.java src/dao/EtudiantDAO.java src/test/Etudiant_test.java
 
-java -cp "bin;lib/mariadb-java-client-3.5.3.jar" test.Etudiant_test
+java -cp "bin;lib/mysql-connector-j-9.3.0.jar" test.Etudiant_test
