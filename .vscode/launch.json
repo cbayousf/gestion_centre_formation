@@ -2,11 +2,19 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch Chrome",
+            "type": "java",
+            "name": "LoginApp",
             "request": "launch",
-            "type": "chrome",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}"
+            "mainClass": "example.LoginApp",
+            "projectName": "gestion_centre_256b2d6"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "example.Main",
+            "projectName": "gestion_centre_256b2d6",
+            "vmArgs": "--module-path C:\\Users\\HAMID\\Desktop\\javafx-sdk-24.0.1\\lib --add-modules javafx.controls,javafx.fxml"
         },
         {
             "name": "Launch Chrome",
@@ -19,8 +27,8 @@
             "type": "java",
             "name": "JavaFX Application",
             "request": "launch",
-            "mainClass": "out/Main",  // Remplace par le nom de ta classe principale (avec package si nécessaire)
-            "vmArgs": "--module-path ${workspaceFolder}/lib/javafx-sdk-24.0.1/lib --add-modules javafx.controls,javafx.fxml"
+            "mainClass": "out/Main",
+            "vmArgs": "--module-path C:\\Users\\HAMID\\Desktop\\javafx-sdk-24.0.1\\lib --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }

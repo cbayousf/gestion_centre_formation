@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            styleClass="container">
+
+    <!-- Background Circles -->
+    <Pane>
+        <ImageView fitWidth="60" fitHeight="60" preserveRatio="true"
+                    styleClass="bg-element bg-circle">
+            <image>
+                <Image url="@../resources/images/cercle_orange.png"/>
+            </image>
+        </ImageView>
+
+        <ImageView fitWidth="60" fitHeight="60" preserveRatio="true"
+                    styleClass="bg-element bg-arrow">
+            <image>
+                <Image url="@../resources/images/cercle_orange.png"/>
+            </image>
+        </ImageView>
+    </Pane>
+
+    <!-- Main Content -->
+    <HBox spacing="20" alignment="CENTER" padding="20" styleClass="login-wrapper">
+        <!-- Left Form -->
+        <VBox spacing="20" minWidth="350" maxWidth="350" styleClass="login-form">
+            <Label text="Login into your account" styleClass="login-title"/>
+
+            <!-- Form Section -->
+            <VBox spacing="10" styleClass="form-section">
+                <Label text="Form" styleClass="form-title"/>
+
+                <!-- Name Input -->
+                <HBox spacing="10" styleClass="input-with-icon">
+                    <Label styleClass="input-icon">
+                        <graphic>
+                            <Pane style="-fx-background-color: #888; -fx-shape: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8z'; -fx-padding: 5px;" />
+                        </graphic>
+                    </Label>
+                    <TextField promptText="Name" styleClass="form-control"/>
+                </HBox>
+
+                <!-- Email Input -->
+                <HBox spacing="10" styleClass="input-with-icon">
+                    <Label styleClass="input-icon">
+                        <graphic>
+                            <Pane style="-fx-background-color: #888; -fx-shape: 'M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5z M3 7l9 7 9-7'; -fx-padding: 5px;" />
+                        </graphic>
+                    </Label>
+                    <TextField promptText="E-mail" styleClass="form-control"/>
+                </HBox>
+
+                <!-- Password Input -->
+                <HBox spacing="10" styleClass="input-with-icon">
+                    <Label styleClass="input-icon">
+                        <graphic>
+                            <Pane style="-fx-background-color: #888; -fx-shape: 'M3 12a9 9 0 0 0 9 9c2.5 0 4.8-1 6.5-2.7l-1.2-1.2A7.9 7.9 0 0 1 9 16a8 8 0 0 1-6-3.5L3 12z M9 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z'; -fx-padding: 5px;" />
+                        </graphic>
+                    </Label>
+                    <PasswordField promptText="Password" styleClass="form-control"/>
+                </HBox>
+
+                <Hyperlink text="Forgot password?" styleClass="forgot-password"/>
+            </VBox>
+
+            <!-- Login Button -->
+            <Button text="Log in now" onAction="#handleLogin" styleClass="login-btn"/>
+        </VBox>
+
+        <!-- Right Illustration -->
+        <Pane minWidth="450" maxWidth="450" styleClass="login-illustration">
+            <ImageView fitWidth="100%" fitHeight="auto">
+                <image>
+                    <Image url="@../resources/images/login.png"/>
+                </image>
+            </ImageView>
+        </Pane>
+    </HBox>
+</BorderPane>

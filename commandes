@@ -7,3 +7,12 @@ java -cp "bin;lib/mysql-connector-j-9.3.0.jar" Main
 javac -cp "lib/mysql-connector-j-9.3.0.jar" -d bin src/conn/ConnexionDB.java src/model/Etudiant.java src/dao/EtudiantDAO.java src/test/Etudiant_test.java
 
 java -cp "bin;lib/mysql-connector-j-9.3.0.jar" test.Etudiant_test
+
+
+//javafx
+javac --module-path lib --adde-path lib --add-modules javafx.controls,javafx.fxml -d out .\src\example\Main.java .\src\example\LoginController.
+
+2::
+ javac --module-path lib --add-modules javafx.controls,javafx.fxml -d out ./src/example/LoginApp.java
+
+java --module-path C:\Users\HAMID\Desktop\javafx-sdk-24.0.1\lib --add-modules=javafx.controls,javafx.fxml Main
