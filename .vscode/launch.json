@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Chrome",
+            "request": "launch",
+            "type": "chrome",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Launch Chrome",
+            "request": "launch",
+            "type": "chrome",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "java",
+            "name": "JavaFX Application",
+            "request": "launch",
+            "mainClass": "out/Main",  // Remplace par le nom de ta classe principale (avec package si nécessaire)
+            "vmArgs": "--module-path ${workspaceFolder}/lib/javafx-sdk-24.0.1/lib --add-modules javafx.controls,javafx.fxml"
+        }
+    ]
+}
