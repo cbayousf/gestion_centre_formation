@@ -7,3 +7,8 @@ java -cp "bin;lib/mysql-connector-j-9.3.0.jar" Main
 javac -cp "lib/mysql-connector-j-9.3.0.jar" -d bin src/conn/ConnexionDB.java src/model/Etudiant.java src/dao/EtudiantDAO.java src/test/Etudiant_test.java
 
 java -cp "bin;lib/mysql-connector-j-9.3.0.jar" test.Etudiant_test
+
+
+
+
+javac -cp "lib/servlet-api.jar" -d bin src/model/*.java src/dao/*.java src/servlet/*.java .\src\conn\ConnexionDB.java
