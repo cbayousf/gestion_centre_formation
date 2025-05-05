@@ -3,6 +3,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "addModuleApp",
+            "request": "launch",
+            "mainClass": "php.addModuleApp",
+            "projectName": "gestion_centre_formation_1d892288"
+        },
+        {
+            "type": "java",
             "name": "EtudiantApp",
             "request": "launch",
             "mainClass": "interfase_utilisateur.php.EtudiantApp",

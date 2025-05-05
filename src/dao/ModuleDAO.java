@@ -10,7 +10,7 @@ import model.ModuleFormation;
 public class ModuleDAO {
 
     public void ajouterModule(ModuleFormation m) {
-        String sql = "INSERT INTO Module(Nom_Module, Description, Durée) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO ModuleFormation (Nom_Module, Description, Durée) VALUES (?, ?, ?)";
         try (Connection conn = ConnexionDB.getConnection(); 
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, m.getNomModule());
@@ -24,7 +24,7 @@ public class ModuleDAO {
     }
 
     public void modifierModule(ModuleFormation m) {
-        String sql = "UPDATE Module SET Nom_Module=?, Description=?, Durée=? WHERE ID_Module=?";
+        String sql = "UPDATE ModuleFormation SET Nom_Module=?, Description=?, Durée=? WHERE ID_Module=?";
         try (Connection conn = ConnexionDB.getConnection(); 
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, m.getNomModule());
@@ -39,7 +39,7 @@ public class ModuleDAO {
     }
 
     public void supprimerModule(int id) {
-        String sql = "DELETE FROM Module WHERE ID_Module=?";
+        String sql = "DELETE FROM ModuleFormation WHERE ID_Module=?";
         try (Connection conn = ConnexionDB.getConnection(); 
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, id);
@@ -51,7 +51,7 @@ public class ModuleDAO {
     }
 
     public ModuleFormation chercherModule(int id) {
-        String sql = "SELECT * FROM Module WHERE ID_Module=?";
+        String sql = "SELECT * FROM ModuleFormation WHERE ID_Module=?";
         try (Connection conn = ConnexionDB.getConnection(); 
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, id);
@@ -73,7 +73,7 @@ public class ModuleDAO {
 
     public List<ModuleFormation> listerTous() {
         List<ModuleFormation> list = new ArrayList<>();
-        String sql = "SELECT * FROM Module";
+        String sql = "SELECT * FROM ModuleFormation";
         try (Connection conn = ConnexionDB.getConnection(); 
              Statement stmt = conn.createStatement(); 
              ResultSet rs = stmt.executeQuery(sql)) {

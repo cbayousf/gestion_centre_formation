@@ -13,6 +13,11 @@ public class Cours{
         this.dateCours = null;
         this.idModule = 0;
     }
+    public Cours(String nomCours, LocalDate dateCours, int idModule){
+        this.nomCours = nomCours;
+        this.dateCours = dateCours;
+        this.idModule = idModule;
+    }
     public Cours(int idCours, String nomCours, LocalDate dateCours, int idModule){
         this.idCours = idCours;
         this.nomCours = nomCours;

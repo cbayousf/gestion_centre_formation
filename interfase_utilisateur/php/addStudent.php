@@ -27,8 +27,8 @@ if (!empty($nom) && !empty($prenom) && !empty($email) && !empty($telephone)) {
     // Commande corrigée pour appeler Java
     // Remplacez la ligne de commande par:
     // Déterminez le chemin racine du projet
-    $project_root = realpath(dirname(__FILE__) . '/../../../');
-    $command = 'java -cp "' . $project_root . '/bin;' . $project_root . '/lib/mysql-connector-j-9.3.0.jar" php.EtudiantApp '
+    $project_root = realpath(dirname(__FILE__) . '/../../');
+    $command = 'java -cp "' . $project_root . '/bin;' . $project_root . '/lib/mysql-connector-j-9.3.0.jar" php.addStudentApp '
     . escapeshellarg($nom) . ' '
     . escapeshellarg($prenom) . ' '
     . escapeshellarg($email) . ' '
@@ -42,8 +42,8 @@ if (!empty($nom) && !empty($prenom) && !empty($email) && !empty($telephone)) {
     echo "<pre>" . implode("\n", $output) . "</pre>";
     
     if ($return_var === 0) {
+        header("Location: ../etulisateur.html");
         echo "<p style='color:green;'>✅ Étudiant ajouté avec succès.</p>";
-        header("Location: success.html");
         exit();
     } else {
         echo "<p style='color:red;'>❌ Erreur lors de l'ajout de l'étudiant (code: $return_var).</p>";

@@ -1,7 +1,7 @@
 package php;
 import dao.EtudiantDAO;
 import model.Etudiant;
-public class EtudiantApp {
+public class addStudentApp {
     public static void main(String[] args) {
         if (args.length < 4) {
             System.err.println("Erreur : paramètres manquants.");
