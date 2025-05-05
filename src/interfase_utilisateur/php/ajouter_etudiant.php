@@ -16,6 +16,7 @@ if (!empty($nom) && !empty($prenom) && !empty($email) && !empty($telephone)) {
     // Commande mise à jour avec le package php.EtudiantApp
     $command = "java -cp \"../bin;../lib/mysql-connector-j-9.3.0.jar\" php.EtudiantApp \"$nom\" \"$prenom\" \"$email\" \"$telephone\"";
 
+
     // Exécution + capture des erreurs Java
     exec("$command 2>&1", $output, $return_var);
 
