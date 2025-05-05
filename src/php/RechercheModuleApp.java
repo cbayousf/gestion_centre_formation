@@ -15,16 +15,16 @@ public class RechercheModuleApp {
         ModuleFormation module = moduleDAO.chercherModuleParNom(nomModule);
 
         if (module != null) {
-            System.out.println("Module trouvé :");
+            System.out.println("Module trouve :");
             System.out.println("ID :" + module.getIdModule());
             System.out.println("Nom :" + module.getNomModule());
             System.out.println("Description :" + module.getDescription());
-            System.out.println("Durée :" + module.getDuree() + " heures");
+            System.out.println("Duree :" + module.getDuree() + " heures");
 
             // ✅ Sortie avec succès
             System.exit(0);
         } else {
-            System.err.println("Aucun module trouvé pour « " + nomModule + " ».");
+            System.err.println("Aucun module trouve pour  " + nomModule + " .");
             // ❌ Sortie erreur
             System.exit(1);
         }

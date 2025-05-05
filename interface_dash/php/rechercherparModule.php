@@ -1,34 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Résultats de la recherche</title>
+    <link rel="stylesheet" href="../style-resultat.css"> <!-- Fichier CSS personnalisé -->
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container">
+        <h1> Résultats de la recherche</h1>
+    </div>
+</header>
+
+<main class="result-container">
+    <div class="container">
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
 
-// Récupère le terme de recherche depuis le formulaire
-$terme = $_GET['q'] ?? '';
+    $terme = $_GET['q'] ?? '';
 
-if (!empty($terme)) {
-    // Commande pour exécuter RechercheModuleApp.class
-    $project_root = realpath(dirname(__FILE__) . '/../../');
-    // $command = 'java -cp "' . $project_root . '/bin;' . $project_root . '/lib/mysql-connector-j-9.3.0.jar" php.RechercheModuleApp '
-    // . escapeshellarg($terme);
-    $command = 'java -Dfile.encoding=UTF-8 -cp "' . $project_root . '/bin;' . $project_root . '/lib/mysql-connector-j-9.3.0.jar" php.RechercheModuleApp '
-    . escapeshellarg($terme);
+    echo "<div class='search-term'>Vous avez recherché : <strong>" . htmlspecialchars($terme) . "</strong></div>";
 
-    // Exécution + capture des erreurs
-    exec("$command 2>&1", $output, $return_var);
+    if (!empty($terme)) {
+        $project_root = realpath(dirname(__FILE__) . '/../../');
+        $command = 'java -Dfile.encoding=UTF-8 -cp "' . $project_root . '/bin;' . $project_root . '/lib/mysql-connector-j-9.3.0.jar" php.RechercheModuleApp ' . escapeshellarg($terme);
+        exec("$command 2>&1", $output, $return_var);
 
-    echo "<h3>Commande exécutée :</h3><pre>$command</pre>";
-    echo "<h3>Sortie complète :</h3>";
-    echo "<pre>" . implode("\n", $output) . "</pre>";
+        echo "<div class='output-box'>";
+        echo "<h3>Résultat :</h3>";
+        echo "<pre>" . implode("\n", $output) . "</pre>";
+        echo "</div>";
 
-    if ($return_var === 0 && !empty($output)) {
-        echo "<p style='color:green;'>✅ Module trouvé.</p>";
+        if ($return_var === 0 && !empty($output)) {
+            echo "<p class='success'>✅ Module trouvé.</p>";
+        } else {
+            echo "<p class='error'>❌ Aucun module trouvé ou erreur lors de la recherche.</p>";
+        }
     } else {
-        echo "<p style='color:red;'>❌ Aucun module trouvé ou erreur lors de la recherche.</p>";
+        echo "<p class='warning'>⚠️ Veuillez entrer un nom de module à rechercher.</p>";
     }
-} else {
-    echo "<p style='color:orange;'>⚠️ Veuillez entrer un nom de module à rechercher.</p>";
-}
 ?>
+        <div class="back-btn">
+            <a href="../index.html">← Retour à l'accueil</a>
+        </div>
+    </div>
+</main>
 
-<!-- Lien retour -->
-<a href="../index.html">← Retour à l'accueil</a>
+</body>
+</html>
