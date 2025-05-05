@@ -7,7 +7,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import model66.Etudiant;
+import model.Etudiant;
 import dao.EtudiantDAO;
 
 public class Main {

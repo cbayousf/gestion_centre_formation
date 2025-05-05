@@ -3,6 +3,7 @@
     "configurations": [
         {
             "type": "java",
+<<<<<<< HEAD
             "name": "Dashboard",
             "request": "launch",
             "mainClass": "example.Dashboard",
@@ -25,6 +26,12 @@
             "mainClass": "example.LoginApp",
             "projectName": "gestion_centre_256b2d6",
             "vmArgs": "--module-path C:\\Users\\HAMID\\Desktop\\javafx-sdk-24.0.1\\lib --add-modules javafx.controls,javafx.fxml"
+=======
+            "name": "EtudiantApp",
+            "request": "launch",
+            "mainClass": "interfase_utilisateur.php.EtudiantApp",
+            "projectName": "gestion_centre_formation_1d892288"
+>>>>>>> 1040e7e0f5c0a6ba5fc38b5f9e7cf66e97908b5e
         },
         {
             "type": "java",

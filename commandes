@@ -20,3 +20,8 @@ java --module-path C:\Users\HAMID\Desktop\javafx-sdk-24.0.1\lib --add-modules=ja
 
 
 javac -cp "lib/servlet-api.jar" -d bin src/model/*.java src/dao/*.java src/servlet/*.java .\src\conn\ConnexionDB.java
+
+//php
+javac -cp lib/mysql-connector-j-9.3.0.jar -d bin src/dao/*.java src/model/*.java src/php/*.java src/conn/*.java
+
+Java -cp "bin;lib/mysql-connector-j-9.3.0.jar" php.EtudiantApp "nom" "prenom" "email" "telephone"
