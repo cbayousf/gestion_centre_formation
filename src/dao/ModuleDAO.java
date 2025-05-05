@@ -10,7 +10,7 @@ import model.ModuleFormation;
 public class ModuleDAO {
 
     public void ajouterModule(ModuleFormation m) {
-        String sql = "INSERT INTO Module(Nom_Module, Description, Durée) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO Module(Nom_Module, Description, Duree) VALUES (?, ?, ?)";
         try (Connection conn = ConnexionDB.getConnection(); 
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, m.getNomModule());
@@ -24,7 +24,7 @@ public class ModuleDAO {
     }
 
     public void modifierModule(ModuleFormation m) {
-        String sql = "UPDATE Module SET Nom_Module=?, Description=?, Durée=? WHERE ID_Module=?";
+        String sql = "UPDATE Module SET Nom_Module=?, Description=?, Duree=? WHERE ID_Module=?";
         try (Connection conn = ConnexionDB.getConnection(); 
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, m.getNomModule());
@@ -61,7 +61,7 @@ public class ModuleDAO {
                     rs.getInt("ID_Module"),
                     rs.getString("Nom_Module"),
                     rs.getString("Description"),
-                    rs.getInt("Durée")
+                    rs.getInt("Duree")
                 );
             }
         } catch (SQLException ex) {
@@ -82,7 +82,7 @@ public class ModuleDAO {
                     rs.getInt("ID_Module"),
                     rs.getString("Nom_Module"),
                     rs.getString("Description"),
-                    rs.getInt("Durée")
+                    rs.getInt("Duree")
                 );
                 list.add(m);
             }
@@ -97,7 +97,7 @@ public class ModuleDAO {
 
     //tester 
     public ModuleFormation chercherModuleParNom(String nomModule) {
-        String sql = "SELECT * FROM Module WHERE Nom_Module = ?";
+        String sql = "SELECT * FROM Moduleformation WHERE Nom_Module = ?";
         try (Connection conn = ConnexionDB.getConnection(); 
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, nomModule);
@@ -107,7 +107,7 @@ public class ModuleDAO {
                     rs.getInt("ID_Module"),
                     rs.getString("Nom_Module"),
                     rs.getString("Description"),
-                    rs.getInt("Durée")
+                    rs.getInt("Duree")
                 );
             }
         } catch (SQLException ex) {

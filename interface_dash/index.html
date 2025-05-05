@@ -57,14 +57,21 @@
             </div>
         </section>
 
-        <section class="search-section">
+        <!-- <section class="search-section">
             <div class="container">
                 <div class="search-container">
                     <input type="text" class="search-input" placeholder="Search for a location...">
                     <button class="search-btn">Continue</button>
                 </div>
             </div>
-        </section>
+        </section> -->
+
+        <form action="php/rechercherparModule.php" method="GET">
+            <div class="search-container">
+                <input type="text" name="q" class="search-input" placeholder="Search for a course..." required>
+                <button type="submit" class="search-btn">Continue</button>
+            </div>
+        </form>
 
         <section id="courses" class="tracks-section">
             <div class="container">
@@ -86,7 +93,7 @@
                             <div class="track-category">TRACK 01</div>
                             <h3 class="track-title">Design & Création</h3>
                             <div class="track-rating">★★★★★</div>
-                            <a href="#design-course" class="join-btn">Join Course</a>
+                            <!-- <a href="#design-course" class="join-btn">Join Course</a> -->
                         </div>
                     </div>
                     
@@ -96,7 +103,7 @@
                             <div class="track-category">TRACK 02</div>
                             <h3 class="track-title">Business & Entrepreneurship</h3>
                             <div class="track-rating">★★★★★</div>
-                            <a href="#business-course" class="join-btn">Join Course</a>
+                            <!-- <a href="#business-course" class="join-btn">Join Course</a> -->
                         </div>
                     </div>
                     
@@ -106,12 +113,15 @@
                             <div class="track-category">TRACK 03</div>
                             <h3 class="track-title">Programmation & Informatique</h3>
                             <div class="track-rating">★★★★★</div>
-                            <a href="#programming-course" class="join-btn">Join Course</a>
+                            <!-- <a href="#programming-course" class="join-btn">Join Course</a> -->
                         </div>
                     </div>
                 </div>
             </div>
             
+            <!-- <div class="join-us-button">
+                <a href="#join" class="join-us-btn">Join Us</a>
+            </div> -->
             <img src="/api/placeholder/150/150" alt="World background" class="world-bg world-bg-1">
             <img src="/api/placeholder/100/100" alt="World background" class="world-bg world-bg-2">
         </section>

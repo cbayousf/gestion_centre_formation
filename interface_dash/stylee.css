@@ -235,6 +235,27 @@ header {
     margin-top: 15px;
 }
 
+
+.join-us-button {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.join-us-btn {
+    display: inline-block;
+    background-color: #e86c25;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.join-us-btn:hover {
+    background-color: #bf5b1a;
+}
 /* Footer */
 .footer {
     background-color: #fff0e6;
