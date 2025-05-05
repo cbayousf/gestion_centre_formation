@@ -10,7 +10,11 @@ import model.ModuleFormation;
 public class ModuleDAO {
 
     public void ajouterModule(ModuleFormation m) {
+<<<<<<< HEAD
         String sql = "INSERT INTO ModuleFormation (Nom_Module, Description, Duree) VALUES (?, ?, ?)";
+=======
+        String sql = "INSERT INTO ModuleFormation (Nom_Module, Description, Durée) VALUES (?, ?, ?)";
+>>>>>>> fff8941aff9b2b62466f078fabe878da8dd43fd0
         try (Connection conn = ConnexionDB.getConnection(); 
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, m.getNomModule());
@@ -24,7 +28,11 @@ public class ModuleDAO {
     }
 
     public void modifierModule(ModuleFormation m) {
+<<<<<<< HEAD
         String sql = "UPDATE ModuleFormation SET Nom_Module=?, Description=?, Duree=? WHERE ID_Module=?";
+=======
+        String sql = "UPDATE ModuleFormation SET Nom_Module=?, Description=?, Durée=? WHERE ID_Module=?";
+>>>>>>> fff8941aff9b2b62466f078fabe878da8dd43fd0
         try (Connection conn = ConnexionDB.getConnection(); 
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, m.getNomModule());

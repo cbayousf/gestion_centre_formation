@@ -27,14 +27,12 @@
                 <h1 class="hero-title">The <span class="highlight-orange">Smart</span> Choice For <span class="highlight-future">Future</span></h1>
                 <p class="hero-description">Elearn is a global training provider based across the UK that specialises in accredited and bespoke training courses. We crush the...</p>
                 
-                <div class="search-container">
-                    <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M21 21L16.65 16.65" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <input type="text" class="search-input" placeholder="Search for a location...">
-                    <button class="continue-btn">Continue</button>
-                </div>
+                <form action="php/recherche.php" method="GET">
+                    <div class="search-container">
+                        <input type="text" name="q" class="search-input" placeholder="Search for a course...">
+                        <button type="submit" class="continue-btn">Continue</button>
+                    </div>
+                </form>
             </div>
             
             <div class="bg-circle">
