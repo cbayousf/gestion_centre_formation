@@ -21,13 +21,14 @@ public class GetCoursApp {
         CoursDAO dao = new CoursDAO();
         Cours cours = dao.rechercherCours(idCours);
 
-        if (cours != null) {
+        if (cours == null) {
+            System.err.println("❌ Aucun cours trouvé avec cet ID.");
+        } else {
+            // Sortie formatée pour PHP
             System.out.println(cours.getIdCours());
             System.out.println(cours.getNomCours());
             System.out.println(cours.getDateCours());
             System.out.println(cours.getIdModule());
-        } else {
-            System.err.println("❌ Aucun cours trouvé avec cet ID.");
         }
     }
 }
