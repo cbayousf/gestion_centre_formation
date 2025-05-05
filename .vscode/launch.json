@@ -3,6 +3,7 @@
     "configurations": [
         {
             "type": "java",
+<<<<<<< HEAD
             "name": "addModuleApp",
             "request": "launch",
             "mainClass": "php.addModuleApp",
@@ -10,34 +11,52 @@
         },
         {
             "type": "java",
+=======
+<<<<<<< HEAD
+            "name": "Dashboard",
+            "request": "launch",
+            "mainClass": "example.Dashboard",
+            "projectName": "gestion_centre_256b2d6",
+            "vmArgs": "--module-path C:\\Users\\HAMID\\Desktop\\javafx-sdk-24.0.1\\lib --add-modules javafx.controls,javafx.fxml"
+
+        },
+        {
+            "type": "java",
+            "name": "DreamAndLearn",
+            "request": "launch",
+            "mainClass": "example.DreamAndLearn",
+            "projectName": "gestion_centre_256b2d6",
+            "vmArgs": "--module-path C:\\Users\\HAMID\\Desktop\\javafx-sdk-24.0.1\\lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "LoginApp",
+            "request": "launch",
+            "mainClass": "example.LoginApp",
+            "projectName": "gestion_centre_256b2d6",
+            "vmArgs": "--module-path C:\\Users\\HAMID\\Desktop\\javafx-sdk-24.0.1\\lib --add-modules javafx.controls,javafx.fxml"
+=======
+>>>>>>> b88469567837dee0d24f07f3f304a1281742fffe
             "name": "EtudiantApp",
             "request": "launch",
             "mainClass": "interfase_utilisateur.php.EtudiantApp",
             "projectName": "gestion_centre_formation_1d892288"
+>>>>>>> 1040e7e0f5c0a6ba5fc38b5f9e7cf66e97908b5e
         },
         {
             "type": "java",
             "name": "AjouterEtudiantApp",
             "request": "launch",
             "mainClass": "app.AjouterEtudiantApp",
-            "projectName": "gestion_centre_formation_2bfe5bd3",
-            "vmArgs": "--module-path \"C:/Users/pc/Downloads/javafx/javafx-sdk-24.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
+            "projectName": "gestion_centre_256b2d6",
+            "vmArgs": "--module-path C:\\Users\\HAMID\\Desktop\\javafx-sdk-24.0.1\\lib --add-modules javafx.controls,javafx.fxml"
         },
         {
-            "type": "java",
-            "name": "UpdateStudentApp",
+            "name": "Launch Chrome",
             "request": "launch",
-            "mainClass": "app.UpdateStudentApp",
-            "projectName": "gestion_centre_formation_2bfe5bd3",
-            "vmArgs": "--module-path \"C:/Users/pc/Downloads/javafx/javafx-sdk-24.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        },
-        {
-            "type": "java",
-            "name": "App",
-            "request": "launch",
-            "mainClass": "App",
-            "projectName": "gestion_centre_formation_2bfe5bd3",
-            "vmArgs": "--module-path \"C:/Users/pc/Downloads/javafx/javafx-sdk-24.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
+            "type": "chrome",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}"
         },
         {
             "name": "Launch Chrome",
@@ -51,7 +70,7 @@
             "name": "JavaFX Application",
             "request": "launch",
             "mainClass": "out/Main",
-            "vmArgs": "--module-path \"C:/Users/pc/Downloads/javafx/javafx-sdk-24.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path C:\\Users\\HAMID\\Desktop\\javafx-sdk-24.0.1\\lib --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }
