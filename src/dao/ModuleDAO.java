@@ -10,11 +10,7 @@ import model.ModuleFormation;
 public class ModuleDAO {
 
     public void ajouterModule(ModuleFormation m) {
-<<<<<<< HEAD
-        String sql = "INSERT INTO ModuleFormation (Nom_Module, Description, Durée) VALUES (?, ?, ?)";
-=======
-        String sql = "INSERT INTO Module(Nom_Module, Description, Duree) VALUES (?, ?, ?)";
->>>>>>> b88469567837dee0d24f07f3f304a1281742fffe
+        String sql = "INSERT INTO ModuleFormation (Nom_Module, Description, Duree) VALUES (?, ?, ?)";
         try (Connection conn = ConnexionDB.getConnection(); 
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, m.getNomModule());
@@ -28,11 +24,7 @@ public class ModuleDAO {
     }
 
     public void modifierModule(ModuleFormation m) {
-<<<<<<< HEAD
-        String sql = "UPDATE ModuleFormation SET Nom_Module=?, Description=?, Durée=? WHERE ID_Module=?";
-=======
-        String sql = "UPDATE Module SET Nom_Module=?, Description=?, Duree=? WHERE ID_Module=?";
->>>>>>> b88469567837dee0d24f07f3f304a1281742fffe
+        String sql = "UPDATE ModuleFormation SET Nom_Module=?, Description=?, Duree=? WHERE ID_Module=?";
         try (Connection conn = ConnexionDB.getConnection(); 
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, m.getNomModule());
@@ -105,7 +97,7 @@ public class ModuleDAO {
 
     //tester 
     public ModuleFormation chercherModuleParNom(String nomModule) {
-        String sql = "SELECT * FROM Moduleformation WHERE Nom_Module = ?";
+        String sql = "SELECT * FROM ModuleFormation WHERE Nom_Module = ?";
         try (Connection conn = ConnexionDB.getConnection(); 
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, nomModule);

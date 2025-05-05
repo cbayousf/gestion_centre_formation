@@ -3,7 +3,7 @@ package php;
 import dao.ModuleDAO;
 import model.ModuleFormation;
 
-public class addModuleApp {
+public class addModuleAppp {
 
     public static void main(String[] args) {
         if (args.length < 3) {

@@ -42,7 +42,7 @@ if (!empty($nom) && !empty($prenom) && !empty($email) && !empty($telephone)) {
     echo "<pre>" . implode("\n", $output) . "</pre>";
     
     if ($return_var === 0) {
-        header("Location: ../etulisateur.html");
+        header("Location: ../etulisateur.php");
         echo "<p style='color:green;'>✅ Étudiant ajouté avec succès.</p>";
         exit();
     } else {

@@ -27,7 +27,7 @@ if (!empty($nom_module) && !empty($description) && is_numeric($duree))  {
     // Remplacez la ligne de commande par:
     // Déterminez le chemin racine du projet
     $project_root = realpath(dirname(__FILE__) . '/../../');
-    $command = 'java -cp "' . $project_root . '/bin;' . $project_root . '/lib/mysql-connector-j-9.3.0.jar" php.addModuleApp '
+    $command = 'java -cp "' . $project_root . '/bin;' . $project_root . '/lib/mysql-connector-j-9.3.0.jar" php.addModuleAppp '
     . escapeshellarg($nom_module) . ' '
     . escapeshellarg($description) . ' '
     . escapeshellarg($duree);
@@ -41,7 +41,7 @@ if (!empty($nom_module) && !empty($description) && is_numeric($duree))  {
     
     if ($return_var === 0) {
         echo "<p style='color:green;'>✅ Module ajouté avec succès.</p>";
-        header("Location: ../etulisateur.html");
+        header("Location: ../etulisateur.php");
         exit();
     } else {
         echo "<p style='color:red;'>❌ Erreur lors de l'ajout de module (code: $return_var).</p>";

@@ -22,7 +22,7 @@ if (!empty($nom_cours) && !empty($date_cours) && is_numeric($id_module)) {
     exec("$command 2>&1", $output, $return_var);
 
     if ($return_var === 0) {
-        header("Location: ../etulisateur.html"); // Rediriger en cas de succès
+        header("Location: ../cour.php"); // Rediriger en cas de succès
         exit();
     } else {
         echo "<p style='color:red;'>❌ Erreur lors de l'ajout du cours (code: $return_var).</p>";

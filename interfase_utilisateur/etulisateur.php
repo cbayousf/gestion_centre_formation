@@ -199,68 +199,57 @@
         </section>
         
         <!-- Formation Section -->
-        <section id="formation" class="section formation-section">
-            <div class="circle-bg"></div>
-            <div class="section-header">
-                <h2 class="section-title">formation</h2>
-                <img src="images/ilistr5.png" alt="Books Icon" class="books-icon">
-            </div>
-            
-            <button class="add-button">
-                <a href="addModule.html">ADD NEW module</a>
-                <span class="arrow-icon">➜</span>
-            </button>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID_Module</th>
-                        <th>Nom_Module</th>
-                        <th>Description</th>
-                        <th>Durée</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <img src="images/ilistr5.png" alt="Module Icon" class="avatar">
-                        </td>
-                        <td><a href="cour.html">Math</a></td>
-                        <td>dgashdfgasdhfgasd</td>
-                        <td>3h</td>
-                        <td class="action-buttons">
-                            <button class="edit-btn"><a href="updateModule.html">✏️</a></button>
-                            <button class="delete-btn">🗑️</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="images/ilistr5.png" alt="Module Icon" class="avatar">
-                        </td>
-                        <td><a href="cour.html">Math</a></td>
-                        <td>dgashdfgasdhfgasd</td>
-                        <td>5h</td>
-                        <td class="action-buttons">
-                            <button class="edit-btn"><a href="updateModule.html">✏️</a></button>
-                            <button class="delete-btn">🗑️</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="images/ilistr5.png" alt="Module Icon" class="avatar">
-                        </td>
-                        <td><a href="cour.html">Math</a></td>
-                        <td>dgashdfgasdhfgasd</td>
-                        <td>5h</td>
-                        <td class="action-buttons">
-                            <button class="edit-btn"><a href="updateModule.html">✏️</a></button>
-                            <button class="delete-btn">🗑️</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+                    <?php
+            require_once 'php/ListModules.php';
+            $modules = getAllModules();
+            ?>
+            <section id="formation" class="section formation-section">
+                <div class="circle-bg"></div>
+                <div class="section-header">
+                    <h2 class="section-title">formation</h2>
+                    <img src="images/ilistr5.png" alt="Books Icon" class="books-icon">
+                </div>
+
+                <button class="add-button">
+                    <a href="addModule.html">ADD NEW module</a>
+                    <span class="arrow-icon">➜</span>
+                </button>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID_Module</th>
+                            <th>Nom_Module</th>
+                            <th>Description</th>
+                            <th>Durée</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if (!empty($modules)): ?>
+                            <?php foreach ($modules as $module): ?>
+                                <tr>
+                                    <td>
+                                        <img src="images/ilistr5.png" alt="Module Icon" class="avatar">
+                                        <?= htmlspecialchars($module['id']) ?>
+                                    </td>
+                                    <td><a href="cour.php?id=<?= htmlspecialchars($module['id']) ?>"><?= htmlspecialchars($module['nom']) ?></a></td>
+                                    <td><?= htmlspecialchars($module['description']) ?></td>
+                                    <td><?= htmlspecialchars($module['duree']) ?></td>
+                                    <td class="action-buttons">
+                                        <button class="edit-btn"><a href="updateCours.php?id=<?= $module['id'] ?>">✏️</a></button>
+                                        <button class="delete-btn">🗑️</button>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="5" style="text-align:center;">Aucun module trouvé.</td>
+                            </tr>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </section>
     </div>
 </body>
 </html>

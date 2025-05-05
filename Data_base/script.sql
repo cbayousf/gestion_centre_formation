@@ -35,7 +35,7 @@ CREATE TABLE ModuleFormation (
     Duree INT -- en heures
 );
 
-INSERT INTO moduleformation (Nom_Module, Description, Duree) VALUES
+INSERT INTO moduleFormation (Nom_Module, Description, Duree) VALUES
 ('Programmation Java', 'Cours complet sur la programmation orientée objet en Java', 40),
 ('Base de Données', 'Introduction et manipulation des SGBD avec MySQL', 30),
 ('Développement Web', 'HTML, CSS, JavaScript pour créer des sites dynamiques', 35);
@@ -48,7 +48,7 @@ CREATE TABLE Inscription (
     ID_Module INT,
     Date_Inscription DATE,
     FOREIGN KEY (ID_Etudiant) REFERENCES etudiant(ID_Etudiant) ON DELETE CASCADE,
-    FOREIGN KEY (ID_Module) REFERENCES Module(ID_Module) ON DELETE CASCADE
+    FOREIGN KEY (ID_Module) REFERENCES ModuleFormation(ID_Module) ON DELETE CASCADE
 );
 
 INSERT INTO Inscription (Statut, ID_Etudiant, ID_Module, Date_Inscription) VALUES
@@ -63,7 +63,7 @@ CREATE TABLE Cours (
     Nom_Cours VARCHAR(20),
     Date_Cours DATE,
     ID_Module INT,
-    FOREIGN KEY (ID_Module) REFERENCES Module(ID_Module) ON DELETE CASCADE
+    FOREIGN KEY (ID_Module) REFERENCES ModuleFormation(ID_Module) ON DELETE CASCADE
 );
 
 INSERT INTO Cours (Nom_Cours, Date_Cours, ID_Module) VALUES 
@@ -78,7 +78,7 @@ CREATE TABLE Certificat (
     ID_Etudiant INT,
     ID_Module INT,
     FOREIGN KEY (ID_Etudiant) REFERENCES etudiant(ID_Etudiant) ON DELETE CASCADE,
-    FOREIGN KEY (ID_Module) REFERENCES Module(ID_Module) ON DELETE CASCADE
+    FOREIGN KEY (ID_Module) REFERENCES ModuleFormation(ID_Module) ON DELETE CASCADE
 );
 
 INSERT INTO Certificat (Date_Generation, ID_Etudiant, ID_Module) VALUES
@@ -92,7 +92,7 @@ CREATE TABLE Affectation (
     ID_Module INT,
     ID_Enseignant INT,
     Date_Affectation DATE,
-    FOREIGN KEY (ID_Module) REFERENCES Module(ID_Module) ON DELETE CASCADE,
+    FOREIGN KEY (ID_Module) REFERENCES ModuleFormation(ID_Module) ON DELETE CASCADE,
     FOREIGN KEY (ID_Enseignant) REFERENCES Enseignant(ID_Enseignant) ON DELETE CASCADE
 );
 INSERT INTO Affectation (ID_Module, ID_Enseignant, Date_Affectation) VALUES
