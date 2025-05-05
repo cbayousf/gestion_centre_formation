@@ -92,4 +92,29 @@ public class ModuleDAO {
         }
         return list;
     }
+
+
+
+    //tester 
+    public ModuleFormation chercherModuleParNom(String nomModule) {
+        String sql = "SELECT * FROM Module WHERE Nom_Module = ?";
+        try (Connection conn = ConnexionDB.getConnection(); 
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, nomModule);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return new ModuleFormation(
+                    rs.getInt("ID_Module"),
+                    rs.getString("Nom_Module"),
+                    rs.getString("Description"),
+                    rs.getInt("Durée")
+                );
+            }
+        } catch (SQLException ex) {
+            System.err.println("Erreur lors de la recherche d’un module par nom");
+            ex.printStackTrace();
+        }
+        return null;
+    }
+    
 }

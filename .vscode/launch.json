@@ -3,18 +3,43 @@
     "configurations": [
         {
             "type": "java",
-            "name": "LoginApp",
+            "name": "Dashboard",
             "request": "launch",
-            "mainClass": "example.LoginApp",
-            "projectName": "gestion_centre_256b2d6"
+            "mainClass": "example.Dashboard",
+            "projectName": "gestion_centre_256b2d6",
+            "vmArgs": "--module-path C:\\Users\\HAMID\\Desktop\\javafx-sdk-24.0.1\\lib --add-modules javafx.controls,javafx.fxml"
+
         },
         {
             "type": "java",
-            "name": "Main",
+            "name": "DreamAndLearn",
             "request": "launch",
-            "mainClass": "example.Main",
+            "mainClass": "example.DreamAndLearn",
             "projectName": "gestion_centre_256b2d6",
             "vmArgs": "--module-path C:\\Users\\HAMID\\Desktop\\javafx-sdk-24.0.1\\lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "LoginApp",
+            "request": "launch",
+            "mainClass": "example.LoginApp",
+            "projectName": "gestion_centre_256b2d6",
+            "vmArgs": "--module-path C:\\Users\\HAMID\\Desktop\\javafx-sdk-24.0.1\\lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "AjouterEtudiantApp",
+            "request": "launch",
+            "mainClass": "app.AjouterEtudiantApp",
+            "projectName": "gestion_centre_256b2d6",
+            "vmArgs": "--module-path C:\\Users\\HAMID\\Desktop\\javafx-sdk-24.0.1\\lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "name": "Launch Chrome",
+            "request": "launch",
+            "type": "chrome",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}"
         },
         {
             "name": "Launch Chrome",
