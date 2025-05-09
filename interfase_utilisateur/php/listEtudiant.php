@@ -1,0 +1,30 @@
+<?php
+function getAllEtudiant() {
+    $project_root = realpath(dirname(__FILE__) . '/../../');
+
+    // Appel du programme Java
+    $command = "java -cp \"{$project_root}/bin;{$project_root}/lib/mysql-connector-j-9.3.0.jar\" php.ListEtudiantApp";
+    exec($command . " 2>&1", $output, $return_var);
+
+    $etudiants = [];
+
+    if ($return_var === 0) {
+        foreach ($output as $line) {
+            $data = explode(";", $line);
+            if (count($data) === 5) { // ✅ Passage à 5 colonnes
+                $etudiants[] = [
+                    'id' => $data[0],
+                    'nom' => $data[1],
+                    'prenom' => $data[2],
+                    'email' => $data[3],
+                    'telephone' => $data[4] // ✅ Maintenant inclus
+                ];
+            }
+        }
+    } else {
+        echo "<pre>Erreur lors de la récupération des etudiants : \n" . implode("\n", $output) . "</pre>";
+    }
+
+    return $etudiants;
+}
+?>

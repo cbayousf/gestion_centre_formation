@@ -39,7 +39,28 @@ public class EtudiantDAO {
             ex.printStackTrace();
         }
     }
+    public Etudiant getEtudiantById(int id) {
+    String sql = "SELECT * FROM etudiant WHERE ID_Etudiant=?";
+    try (Connection conn = ConnexionDB.getConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
 
+        stmt.setInt(1, id);
+        ResultSet rs = stmt.executeQuery();
+
+        if (rs.next()) {
+            return new Etudiant(
+                rs.getInt("ID_Etudiant"),
+                rs.getString("Nom"),
+                rs.getString("Prenom"),
+                rs.getString("Email"),
+                rs.getString("Telephone")
+            );
+        }
+    } catch (SQLException ex) {
+        System.err.println("Erreur SQL : " + ex.getMessage());
+    }
+    return null;
+}
     public void supprimerEtudiant(int id) {
         String sql = "DELETE FROM etudiant WHERE ID_Etudiant=?";
         try (Connection conn = ConnexionDB.getConnection(); 

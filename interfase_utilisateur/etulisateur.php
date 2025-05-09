@@ -37,6 +37,10 @@
         </header>
         
         <!-- Student Area Section -->
+          <?php
+            require_once 'php/ListEtudiant.php';
+            $etudiants = getAlletudiant();
+            ?>
         <section id="student-area" class="section student-section">
             <div class="circle-bg"></div>
             <div class="section-header">
@@ -61,142 +65,90 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <img src="images/ilistr2.png" alt="Student Avatar" class="avatar">
-                        </td>
-                        <td>Karthi</td>
-                        <td>7305477760</td>
-                        <td>karthi@gmail.com</td>
-                        <td>08-Dec-2021</td>
-                        <td class="action-buttons">
-                            <button class="edit-btn"><a href="updateStudent.html">✏️</a></button>
-                            <button class="delete-btn">🗑️</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="images/ilistr2.png" alt="Student Avatar" class="avatar">
-                        </td>
-                        <td>Karthi</td>
-                        <td>7305477760</td>
-                        <td>karthi@gmail.com</td>
-                        <td>08-Dec-2021</td>
-                        <td class="action-buttons">
-                            <button class="edit-btn"><a href="updateStudent.html">✏️</a></button>
-                            <button class="delete-btn">🗑️</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="images/ilistr2.png" alt="Student Avatar" class="avatar">
-                        </td>
-                        <td>Karthi</td>
-                        <td>7305477760</td>
-                        <td>karthi@gmail.com</td>
-                        <td>08-Dec-2021</td>
-                        <td class="action-buttons">
-                            <button class="edit-btn"><a href="updateStudent.html">✏️</a></button>
-                            <button class="delete-btn">🗑️</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="images/ilistr2.png" alt="Student Avatar" class="avatar">
-                        </td>
-                        <td>Karthi</td>
-                        <td>7305477760</td>
-                        <td>karthi@gmail.com</td>
-                        <td>08-Dec-2021</td>
-                        <td class="action-buttons">
-                            <button class="edit-btn" ><a href="updateStudent.html">✏️</a></button>
-                            <button class="delete-btn">🗑️</button>
-                        </td>
-                    </tr>
+                   <?php if (!empty($etudiants)): ?>
+                            <?php foreach ($etudiants as $etudiant): ?>
+                                <tr>
+                                    <td>
+                                        <img src="images/ilistr4.png" alt="Teacher Avatar" class="avatar">
+                                        <?= htmlspecialchars($etudiant['id']) ?>
+                                    </td>
+                                   <td><?= htmlspecialchars($etudiant['nom']) ?></td>
+                                    <td><?= htmlspecialchars($etudiant['prenom']) ?></td> <!-- ou "Numéro d'inscription" si tu en as un -->
+                                    <td><?= htmlspecialchars($etudiant['email']) ?></td>
+                                    <td><?= htmlspecialchars($etudiant['telephone']) ?></td>
+                                    <td class="action-buttons">
+                                        <button class="edit-btn"><a href="updateStudent.php?id=<?= htmlspecialchars($etudiant['id']) ?>">✏️</a></button>
+                                        <button class="delete-btn">
+                                            <a href="php/deleteStudent.php?id=<?= htmlspecialchars($etudiant['id']) ?>" onclick="return confirm('Êtes-vous sûr ?')">🗑️</a>
+                                        </button>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="6" style="text-align:center;">Aucun enseignant trouvé.</td>
+                            </tr>
+                        <?php endif; ?> 
                 </tbody>
             </table>
         </section>
         
-        <!-- Teachers Area Section -->
-        <section id="teachers-area" class="section teachers-section">
-            <div class="circle-bg"></div>
-            <div class="section-header">
-                <h2 class="section-title">teachers area</h2>
-                <img src="images/ilistr3.png" alt="Teacher Icon" class="person-icon">
-            </div>
-            
-            <button class="add-button">
-                <a href="addTeacher.html">ADD NEW Teacher</a>
-                <span class="arrow-icon">➜</span>
-            </button>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID_teacher</th>
-                        <th>Name</th>
-                        <th>Enroll Number</th>
-                        <th>Email</th>
-                        <th>special ity</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <img src="images/ilistr4.png" alt="Teacher Avatar" class="avatar">
-                        </td>
-                        <td>Karthi</td>
-                        <td>7305477760</td>
-                        <td>karthi@gmail.com</td>
-                        <td>08-Dec-2021</td>
-                        <td class="action-buttons">
-                            <button class="edit-btn"><a href="updateTeacher.html">✏️</a></button>
-                            <button class="delete-btn">🗑️</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="images/ilistr4.png" alt="Teacher Avatar" class="avatar">
-                        </td>
-                        <td>Karthi</td>
-                        <td>7305477760</td>
-                        <td>karthi@gmail.com</td>
-                        <td>08-Dec-2021</td>
-                        <td class="action-buttons">
-                            <button class="edit-btn"><a href="updateTeacher.html">✏️</a></button>
-                            <button class="delete-btn">🗑️</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="images/ilistr4.png" alt="Teacher Avatar" class="avatar">
-                        </td>
-                        <td>Karthi</td>
-                        <td>7305477760</td>
-                        <td>karthi@gmail.com</td>
-                        <td>08-Dec-2021</td>
-                        <td class="action-buttons">
-                            <button class="edit-btn"><a href="updateTeacher.html">✏️</a></button>
-                            <button class="delete-btn">🗑️</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="images/ilistr4.png" alt="Teacher Avatar" class="avatar">
-                        </td>
-                        <td>Karthi</td>
-                        <td>7305477760</td>
-                        <td>karthi@gmail.com</td>
-                        <td>08-Dec-2021</td>
-                        <td class="action-buttons">
-                            <button class="edit-btn"><a href="updateTeacher.html">✏️</a></button>
-                            <button class="delete-btn">🗑️</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+            <!-- Teachers Area Section -->
+             <?php
+            require_once 'php/ListProf.php';
+            $profs = getAllprof();
+            ?>
+            <section id="teachers-area" class="section teachers-section">
+                <div class="circle-bg"></div>
+                <div class="section-header">
+                    <h2 class="section-title">Teachers Area</h2>
+                    <img src="images/ilistr3.png" alt="Teacher Icon" class="person-icon">
+                </div>
+
+                <button class="add-button">
+                    <a href="addTeacher.html">ADD NEW TEACHER</a>
+                    <span class="arrow-icon">➜</span>
+                </button>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID_teacher</th>
+                            <th>Name</th>
+                            <th>Enroll Number</th>
+                            <th>Email</th>
+                            <th>Speciality</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if (!empty($profs)): ?>
+                            <?php foreach ($profs as $prof): ?>
+                                <tr>
+                                    <td>
+                                        <img src="images/ilistr4.png" alt="Teacher Avatar" class="avatar">
+                                        <?= htmlspecialchars($prof['id']) ?>
+                                    </td>
+                                   <td><?= htmlspecialchars($prof['nom']) ?></td>
+                                    <td><?= htmlspecialchars($prof['prenom']) ?></td> <!-- ou "Numéro d'inscription" si tu en as un -->
+                                    <td><?= htmlspecialchars($prof['email']) ?></td>
+                                    <td><?= htmlspecialchars($prof['specialite']) ?></td>
+                                    <td class="action-buttons">
+                                        <button class="edit-btn"><a href="updateTeacher.php?id=<?= htmlspecialchars($prof['id']) ?>">✏️</a></button>
+                                         <button class="delete-btn">
+                                            <a href="php/deleteTeacher.php?id=<?= htmlspecialchars($prof['id']) ?>" onclick="return confirm('Êtes-vous sûr ?')">🗑️</a>
+                                        </button>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="6" style="text-align:center;">Aucun enseignant trouvé.</td>
+                            </tr>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </section>
         
         <!-- Formation Section -->
                     <?php
@@ -237,8 +189,10 @@
                                     <td><?= htmlspecialchars($module['description']) ?></td>
                                     <td><?= htmlspecialchars($module['duree']) ?></td>
                                     <td class="action-buttons">
-                                        <button class="edit-btn"><a href="updateCours.php?id=<?= $module['id'] ?>">✏️</a></button>
-                                        <button class="delete-btn">🗑️</button>
+                                        <button class="edit-btn"><a href="updateModule.php?id=<?= $module['id'] ?>">✏️</a></button>
+                                        <button class="delete-btn">
+                                            <a href="php/deleteModule.php?id=<?= htmlspecialchars($module['id']) ?>" onclick="return confirm('Êtes-vous sûr ?')">🗑️</a>
+                                        </button>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

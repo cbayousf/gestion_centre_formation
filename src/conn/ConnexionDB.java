@@ -10,7 +10,7 @@ public class ConnexionDB {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection(
         "jdbc:mysql://localhost:3306/centre_formation","root","");
-            System.out.println("✅ Connexion réussie à la base de données !");
+            //System.out.println("✅ Connexion réussie à la base de données !");
             return conn;
         } catch (ClassNotFoundException e) {
             System.out.println("❌ Driver JDBC non trouvé !");
