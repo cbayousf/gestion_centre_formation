@@ -96,11 +96,36 @@ public class ModuleDAO {
 
 
     //tester 
+    // public ModuleFormation chercherModuleParNom(String nomModule) {
+    //     String sql = "SELECT * FROM ModuleFormation WHERE Nom_Module = ?";
+    //     try (Connection conn = ConnexionDB.getConnection(); 
+    //          PreparedStatement stmt = conn.prepareStatement(sql)) {
+    //         stmt.setString(1, nomModule);
+    //         ResultSet rs = stmt.executeQuery();
+    //         if (rs.next()) {
+    //             return new ModuleFormation(
+    //                 rs.getInt("ID_Module"),
+    //                 rs.getString("Nom_Module"),
+    //                 rs.getString("Description"),
+    //                 rs.getInt("Duree")
+    //             );
+    //         }
+    //     } catch (SQLException ex) {
+    //         System.err.println("Erreur lors de la recherche d’un module par nom");
+    //         ex.printStackTrace();
+    //     }
+    //     return null;
+    // }
+
     public ModuleFormation chercherModuleParNom(String nomModule) {
-        String sql = "SELECT * FROM ModuleFormation WHERE Nom_Module = ?";
+        String sql = "SELECT * FROM ModuleFormation WHERE Nom_Module LIKE ? OR Description LIKE ?";
         try (Connection conn = ConnexionDB.getConnection(); 
              PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, nomModule);
+    
+            String recherche = "%" + nomModule + "%"; // rend la recherche partielle
+            stmt.setString(1, recherche);
+            stmt.setString(2, recherche);
+    
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 return new ModuleFormation(
@@ -116,5 +141,6 @@ public class ModuleDAO {
         }
         return null;
     }
+    
     
 }

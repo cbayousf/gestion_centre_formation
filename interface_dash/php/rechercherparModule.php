@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Résultats de la recherche</title>
-    <link rel="stylesheet" href="../style-resultat.css"> <!-- Fichier CSS personnalisé -->
+    <link rel="stylesheet" href="../style-resultat.css">
 </head>
 <body>
 
