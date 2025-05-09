@@ -95,19 +95,6 @@ header {
     margin-bottom: 10px;
 }
 
-.hero-image {
-    flex: 1;
-    text-align: right;
-}
-
-.hero-image img {
-    max-width: 100%;
-    height: auto;
-}
-
-.hero-image img {
-    max-width: 500px;
-}
 
 /* Search Section */
 .search-section {
@@ -353,11 +340,24 @@ header {
     border-radius: 50%;
 } */
 
-.social-icons img {
-    width: 24px;
-    margin-left: 10px;
+
+.social-icon {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background-color: #ffe6e6;
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 35px;
+    margin: 5px;
 }
 
+.social-icon img {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+}
 .world-bg {
     position: absolute;
     z-index: -1;
@@ -403,3 +403,30 @@ header {
         gap: 30px;
     }
 }
+
+/* Conteneur principal */
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Section du texte */
+.hero-text {
+    flex: 1; /* Prend toute la largeur disponible */
+    max-width: 50%; /* Limite la largeur du texte */
+}
+
+/* Section de l'image */
+.hero-image {
+    text-align: right; /* Centre l'image horizontalement */
+    flex: 1;
+}
+/* Image */
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    margin-left: 200px; /* Ajoute un peu d'espace entre le texte et l'image */
+}
+
