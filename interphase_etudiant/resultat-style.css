@@ -21,7 +21,7 @@ body {
 
 /* Header */
 .site-header {
-    background-color: #e29587;
+    background-color:#4a2c5d;
     padding: 30px 0;
     color: white;
     text-align: center;
@@ -35,7 +35,7 @@ body {
     margin-top: 30px;
     padding: 20px;
     background: #fff8f5;
-    border-left: 5px solid #e29587;
+    border-left: 5px solid#4a2c5d;
     border-radius: 10px;
 }
 
@@ -78,7 +78,7 @@ body {
     margin-top: 20px;
     padding: 15px;
     background: #f5f5f5;
-    border-left: 4px solid #e29587;
+    border-left: 4px solid#4a2c5d;
     border-radius: 10px;
     font-size: 14px;
 }
@@ -93,7 +93,7 @@ body {
 /* Résultat brut */
 .output-box {
     background: #fff;
-    border-left: 5px solid #e29587;
+    border-left: 5px solid#4a2c5d;
     padding: 20px;
     margin-top: 20px;
     border-radius: 10px;
@@ -109,17 +109,17 @@ body {
 }
 
 .back-btn a {
-    color: #e29587;
+    color:#4a2c5d;
     text-decoration: none;
     font-weight: bold;
     padding: 12px 24px;
-    border: 2px solid #e29587;
+    border: 2px solid#4a2c5d;
     border-radius: 25px;
     transition: all 0.3s ease;
 }
 
 .back-btn a:hover {
-    background-color: #e29587;
+    background-color:#4a2c5d;
     color: white;
 }
 

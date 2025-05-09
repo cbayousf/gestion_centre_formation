@@ -101,3 +101,16 @@ INSERT INTO Affectation (ID_Module, ID_Enseignant, Date_Affectation) VALUES
 (1, 1, '2025-01-10'),
 (2, 2, '2025-01-12'),
 (3, 3, '2025-01-15');
+
+
+-- ajoutt de user
+CREATE TABLE utilisateurs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    mot_de_passe VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO utilisateurs (nom, email, mot_de_passe)
+VALUES ('Alice', 'alice@example.com', '$2y$10$your_hashed_password');

@@ -376,7 +376,7 @@ nav ul li a {
 }
 
 
-/* Footer */
+/* Footer
 .footer {
     background-color: #fff0e6;
     padding: 40px 5%;
@@ -461,7 +461,7 @@ nav ul li a {
 .social-links {
     display: flex;
     gap: 15px;
-}
+} */
 
 /* .social-icon {
     display: flex;
@@ -501,4 +501,128 @@ nav ul li a {
 a {
     text-decoration: none;
     color: inherit;
+}
+
+/* Responsive Styles */
+.logo-small {
+    display: flex;
+    align-items: center;
+}
+
+.logo-small img {
+    width: 30px;
+    height: 30px;
+}
+
+.logo-small span {
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 5px;
+}
+/* Conteneur global du footer */
+.footer {
+    background-color: #fffbe6; /* Fond rose clair */
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-logo {
+    flex: 1 1 250px;
+}
+
+.footer-logo h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.footer-description {
+    font-size: 14px;
+    color: #555;
+}
+
+.footer-contact .contact-item {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.footer-contact img {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.footer-column {
+    flex: 1 1 150px;
+}
+
+.footer-column h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.footer-menu li {
+    list-style: none;
+    margin: 5px 0;
+}
+
+.footer-menu a {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+}
+
+.footer-divider {
+    height: 2px;
+    background-color: black;
+    margin: 20px 0;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.footer-policies a {
+    text-decoration: none;
+    color: #555;
+    margin: 0 10px;
+    font-size: 13px;
+}
+
+.social-links .social-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #ffe6e6; /* Boutons roses pâles */
+    border: 2px solid #000;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.social-links img {
+    width: 20px;
+    height: 20px;
 }
