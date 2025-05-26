@@ -1,0 +1,108 @@
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f7f7fa;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    gap: 60px;
+}
+
+.choose-form {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 40px 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.choose-form h2 {
+    margin-bottom: 32px;
+    color: #450e4b;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+.choose-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    width: 100%;
+}
+
+.choose-btn {
+    width: 220px;
+    padding: 14px 0;
+    background: linear-gradient(90deg, #8a368a 60%, #9c3e89 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(255,136,0,0.08);
+}
+
+.choose-btn:hover {
+    background: linear-gradient(90deg, #d87de0 60%, #b93fad 100%);
+    transform: translateY(-2px) scale(1.03);
+}
+
+.login-illustration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.illustration-img {
+    width: 320px;
+    max-width: 90vw;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+}
+
+/* Background elements */
+.bg-element {
+    position: absolute;
+    z-index: 0;
+    opacity: 0.13;
+}
+
+.bg-circle {
+    top: 30px;
+    left: 30px;
+    width: 120px;
+}
+
+.bg-arrow {
+    bottom: 30px;
+    right: 30px;
+    width: 90px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        gap: 30px;
+        min-height: unset;
+        padding: 40px 0;
+    }
+    .login-illustration {
+        margin-top: 20px;
+    }
+    .choose-form {
+        width: 90vw;
+        min-width: unset;
+    }
+}
