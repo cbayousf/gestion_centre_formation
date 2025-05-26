@@ -86,31 +86,31 @@ public class CoursDAO {
         return cours;
     }
     
-    public List<Cours> getAllCoursParModule(int ID_Module) {
-        String query = "SELECT * FROM Cours WHERE ID_Module = ?";
-        List<Cours> lesCours = new ArrayList<>();
-    
-        try (Connection conn = ConnexionDB.getConnection();
-             PreparedStatement pst = conn.prepareStatement(query)) {
-    
-            ResultSet rs = pst.executeQuery();
-            pst.setInt(1, ID_Module);
+   public List<Cours> getAllCoursParModule(int ID_Module) {
+    String query = "SELECT * FROM Cours WHERE ID_Module = ?";
+    List<Cours> lesCours = new ArrayList<>();
 
-            while (rs.next()) {
-                Cours cours = new Cours();
-                cours.setIdCours(rs.getInt("ID_Cours"));
-                cours.setNomCours(rs.getString("Nom_Cours"));
-                cours.setDateCours(rs.getDate("Date_Cours").toLocalDate());
-                cours.setIdModule(rs.getInt("ID_Module"));
-    
-                lesCours.add(cours);
-            }
-    
-        } catch (SQLException e) {
-            System.err.println("Erreur lors de l'affichage des cours par module");
-            e.printStackTrace();
+    try (Connection conn = ConnexionDB.getConnection();
+         PreparedStatement pst = conn.prepareStatement(query)) {
+
+        pst.setInt(1, ID_Module);             // ✅ Avant l'exécution
+        ResultSet rs = pst.executeQuery();    // ✅ Puis on exécute
+
+        while (rs.next()) {
+            Cours cours = new Cours();
+            cours.setIdCours(rs.getInt("ID_Cours"));
+            cours.setNomCours(rs.getString("Nom_Cours"));
+            cours.setDateCours(rs.getDate("Date_Cours").toLocalDate());
+            cours.setIdModule(rs.getInt("ID_Module"));
+
+            lesCours.add(cours);
         }
-        return lesCours;
+
+    } catch (SQLException e) {
+        System.err.println("Erreur lors de l'affichage des cours par module");
+        e.printStackTrace();
     }
+    return lesCours;
+}
 
 }

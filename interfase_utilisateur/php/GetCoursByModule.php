@@ -1,9 +1,7 @@
 <?php
 function getCoursByModule($idModule) {
-    $project_root = realpath(dirname(__FILE__) . '/../../');
-
-    // Appel de Java
-    $command = "java -cp \"{$project_root}/bin;{$project_root}/lib/mysql-connector-j-9.3.0.jar\" php.GetCoursByModuleApp " . escapeshellarg($idModule);
+   $project_root = realpath(dirname(__FILE__) . '/../../');
+    $command = 'java -cp "' . $project_root . '/bin;' . $project_root . '/lib/mysql-connector-j-9.3.0.jar" php.GetCoursByModuleApp "' . escapeshellarg($idModule);
     exec($command . " 2>&1", $output, $return_var);
 
     $coursList = [];
@@ -16,7 +14,7 @@ function getCoursByModule($idModule) {
                     'id' => $data[0],
                     'nom' => $data[1],
                     'date' => $data[2],
-                    'duree' => $data[3] . "h"
+                    'duree' => $data[3]
                 ];
             }
         }

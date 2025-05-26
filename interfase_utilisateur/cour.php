@@ -11,10 +11,10 @@ if ($idModule <= 0) {
 }
 
 // Chemin vers le projet
-$project_root = realpath(dirname(__FILE__) . '/../../');
+ $project_root = realpath(dirname(__FILE__) . '/../../');
 
-// Appel au programme Java
-$command = "java -cp \"{$project_root}/bin;{$project_root}/lib/mysql-connector-j-9.3.0.jar\" php.GetCoursByModuleApp " . escapeshellarg($idModule);
+    // Commande Java à exécuter
+$command = 'java -cp "' . $project_root . '/bin;' . $project_root . '/lib/mysql-connector-j-9.3.0.jar"' . escapeshellarg($idModule);
 exec($command . " 2>&1", $output, $return_var);
 
 // Parser la sortie Java

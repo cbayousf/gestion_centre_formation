@@ -8,7 +8,7 @@ import java.util.List;
 public class GetCoursByModuleApp {
     public static void main(String[] args) {
         if (args.length < 1) {
-            System.err.println("Usage: java php.GetCoursByModuleApp <id_module>");
+            System.out.println("-1;Erreur;ID non fourni;0");
             return;
         }
 
@@ -16,7 +16,7 @@ public class GetCoursByModuleApp {
         try {
             idModule = Integer.parseInt(args[0]);
         } catch (NumberFormatException e) {
-            System.err.println("❌ ID Module invalide.");
+            System.out.println("-1;Erreur;ID invalide;0");
             return;
         }
 
@@ -24,14 +24,15 @@ public class GetCoursByModuleApp {
         List<Cours> coursList = dao.getAllCoursParModule(idModule);
 
         if (coursList == null || coursList.isEmpty()) {
-            System.err.println("❌ Aucun cours trouvé pour ce module.");
+            System.out.println("-1;Aucun cours;Non trouvé;0");
             return;
         }
 
         for (Cours c : coursList) {
             System.out.println(c.getIdCours() + ";" +
                                c.getNomCours() + ";" +
-                               c.getDateCours().toString() );
+                               c.getDateCours().toString() + ";" +
+                               c.getIdModule());
         }
     }
 }
